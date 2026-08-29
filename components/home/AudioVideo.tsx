@@ -5,16 +5,17 @@ import styles from "./AudioVideo.module.css";
 /* ============================================================
    SECTION 5 — AUDIO VIDEO EQUIPMENT
 
-   Two frames, deliberately. The category has four usable images and
-   two of them carry the OVERLAP flag with LIVE EVENTS; the stereo
-   console is already spent on the section 3 tile. Rather than pad,
-   this is built as a copy-led split: one wide establishing frame and
-   one vertical CRT detail, in a layout that reads complete at two.
+   Two frames, deliberately: a copy-led split with one wide
+   establishing shot and one vertical detail, sized to read complete
+   at two rather than padded to three.
 
-   crt-tvs-stacked-band-playing.jpg is committed to AUDIO VIDEO
-   EQUIPMENT here, so it must never appear in section 6. Section 6
-   uses the stage crowd and stage-corner frames instead, so the
-   overlap rule holds by construction.
+   Both frames here are unambiguous gear: a shelf of players and
+   VCRs, and a component stack. The vinyl slatwall and the CRT
+   showing a band were moved out — they read as records and as a
+   screen playing something, not as equipment.
+
+   Neither CRT frame is used on this page any more, so the LIVE
+   EVENTS overlap no longer applies to this section.
 
    Copy constraints: no repair services claimed, no brands or models
    named, no implication of a browsable catalogue. The call to action
@@ -57,10 +58,10 @@ export default function AudioVideo() {
         <div className={styles.media}>
           <Reveal className={styles.figureWide}>
             <Image
-              src="/images/wall-of-entertainment-vinyl-crt.jpg"
-              alt="A slatwall of vinyl LPs beside stacked CRT televisions, one of them playing a film."
-              width={1100}
-              height={619}
+              src="/images/av-equipment-shelves-players.jpg"
+              alt="Wooden shelving racked with DVD players and VCRs, a Sony Hi-Fi VCR mid-shelf and Pioneer bookshelf speakers on top."
+              width={2400}
+              height={1351}
               loading="lazy"
               sizes="(max-width: 60rem) 100vw, 44vw"
               className={styles.image}
@@ -69,10 +70,10 @@ export default function AudioVideo() {
 
           <Reveal delay={100} className={styles.figureTall}>
             <Image
-              src="/images/crt-tvs-stacked-band-playing.jpg"
-              alt="Two CRT televisions stacked on the shop floor, the upper one showing a band playing."
-              width={512}
-              height={640}
+              src="/images/av-equipment-component-stack.jpg"
+              alt="A PS-120 amplifier above a stacked component system with tuner, equaliser and twin cassette deck."
+              width={1351}
+              height={2400}
               loading="lazy"
               sizes="(max-width: 60rem) 45vw, 20vw"
               className={styles.image}
