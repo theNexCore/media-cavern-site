@@ -16,13 +16,11 @@ import styles from "./Logo.module.css";
    width/height to its viewBox. Nothing else in this file, and no
    consuming component, needs to change. <<<
 
-   The artwork ships with an opaque black background (RGB, no
-   alpha), so `mix-blend-mode: screen` in the stylesheet drops the
-   black and keeps the green. That matters on the scrolled header,
-   where the bar is 88% black over blurred content — without it the
-   logo would sit in a visible black rectangle. If a transparent
-   PNG or the SVG replaces this, the blend mode is harmless but can
-   be removed.
+   The artwork carries a real alpha channel: it was supplied as RGB
+   with a baked-in black background, and that black was converted to
+   transparency (see .crawl/alpha.js). It therefore composites
+   correctly on the scrolled header, which is 88% black over blurred
+   content, with no blend-mode workaround.
    ============================================================ */
 
 const LOGO = {

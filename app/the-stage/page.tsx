@@ -43,7 +43,7 @@ export default function TheStagePage() {
           <p className={styles.eyebrow}>Live at the Cavern</p>
           <h1 className={styles.headline}>There&rsquo;s a stage in the store.</h1>
           <p className={styles.support}>
-            And sometimes a trip to the record store turns into a show.
+            And sometimes a trip to the Cavern turns into a show.
           </p>
         </div>
       </header>

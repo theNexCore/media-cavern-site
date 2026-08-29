@@ -41,7 +41,7 @@ export default function LiveAtTheCavern() {
               here. Meet-ups happen here.
             </p>
             <p>
-              And sometimes a trip to the record store turns into a show.
+              And sometimes a trip to the Cavern turns into a show.
             </p>
           </Reveal>
 

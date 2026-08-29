@@ -320,3 +320,25 @@ public repo before anyone notices.
 - `cameron-novack-singing-stage.jpg` — performing on the in-store stage.
 
 Any other person in the archive is unidentified unless stated here.
+
+## /the-story is sourced from a primary document
+
+`/source-docs/cameron-novack-interview-transcript.md` is an 86-minute recorded
+interview with Cameron Novack, conducted by **Reagan Dortch** for SoCo Spotlight.
+It is the source of truth for that page. Every claim on `/the-story` traces to it
+or to facts supplied directly by the client, and each chapter in `/data/story.ts`
+carries a non-rendered `sources` field listing its transcript timestamps.
+
+**The transcript is an automated transcription.** It is authoritative for what
+Cameron *said*, not for spelling. It renders the interviewer as "Regan" — her
+name is **Reagan Dortch**. Verify every proper noun before using it; band, album
+and place names in the transcript are unreliable.
+
+**Never characterise why CD Warehouse closed.** Cameron does not, and neither
+does the site. It closed on 25 January 2025 and Media Cavern opened the same day
+in the same room. No claims about rent, conduct, finances or any dispute.
+Cameron speaks about the previous owner, Walter Ray, with warmth and gratitude —
+the site follows his lead exactly.
+
+**The store piano is not his mother's piano.** Hers is still at his home with the
+keys removed. Do not merge the two.

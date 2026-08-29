@@ -1,59 +1,34 @@
 /* ============================================================
    /the-story — CAMERON NOVACK
-   Editorial, cinematic, asymmetric. Black ground throughout.
+   Numbered chapters with hard breaks. Editorial, cinematic.
    ============================================================ */
 
 .page {
   background-color: var(--surface-page);
-  overflow-x: clip; /* full-bleed and negative offsets stay contained */
+  overflow-x: clip;
 }
 
-/* ---------- Shared type ---------- */
+/* ---------- Shared ---------- */
 
-.eyebrow {
+/* Section labels are 2x their old size and carry real weight. */
+.eyebrow,
+.kicker {
   margin: 0;
   color: var(--mc-green);
   font-family: var(--font-condensed);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-widest);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
 }
 
-.h2,
-.h2Big {
-  display: block;
-  color: var(--text-primary);
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  text-wrap: balance;
-}
-
-.h2 {
-  font-size: var(--text-4xl);
-}
-
-.h2Big {
-  font-size: var(--text-5xl);
-}
-
-.h2Line {
-  display: block;
-}
-
-.h2Line[data-line="1"] {
-  color: var(--mc-green);
-}
-
-/* Inter for narrative — the page is never set entirely in gothic. */
 .prose {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   color: var(--text-secondary);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
 }
@@ -62,32 +37,13 @@
   margin: 0;
 }
 
-.lead {
-  margin: 0;
-  color: var(--text-primary);
-  font-size: var(--text-xl);
-  line-height: var(--leading-normal);
-}
-
-.kicker {
-  margin: 0;
-  color: var(--mc-green);
-  font-family: var(--font-condensed);
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-}
-
 .caption {
   color: var(--text-muted);
   font-family: var(--font-condensed);
-  font-size: var(--text-xs);
+  font-size: var(--text-base);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
-
-/* ---------- Shared frames ---------- */
 
 .figure {
   display: flex;
@@ -96,30 +52,19 @@
   margin: 0;
 }
 
-.frame,
-.frameLit {
+.frame {
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
   border-radius: var(--radius-sm);
   background-color: var(--mc-black);
-}
-
-.frame {
-  border: 1px solid var(--mc-green-deep);
-}
-
-/* The stage frame gets the lamp. */
-.frameLit {
-  border: 1px solid var(--mc-green-mid);
-  box-shadow: var(--glow-md);
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Settles from 1.02 to 1 as its section reveals. */
   transform: scale(1.02);
   transition: transform var(--dur-slow) var(--ease-out);
 }
@@ -128,104 +73,10 @@
   transform: scale(1);
 }
 
-/* ---------- Section scaffolding ---------- */
-
-.section {
-  padding-block: clamp(var(--space-16), 8vw, var(--space-32));
-  padding-inline: var(--gutter);
-}
-
-.splitWide,
-.splitFlip,
-.communityInner {
-  display: grid;
-  gap: clamp(var(--space-10), 6vw, var(--space-20));
-  align-items: center;
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-}
-
-@media (min-width: 60rem) {
-  .splitWide {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  }
-
-  .splitFlip {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  }
-
-  .communityInner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-}
-
-.copyCol {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
-  max-width: 50ch;
-}
-
-.centerCol {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
-  max-width: 60ch;
-  margin-inline: auto;
-}
-
-.figureTall .frame {
-  aspect-ratio: 4 / 5;
-}
-
-.figureWide .frame {
-  aspect-ratio: 4 / 3;
-}
-
-.figurePortrait .frame {
-  aspect-ratio: 3 / 4;
-}
-
-/* A green rule that draws itself in beside the statement. */
-.statementRule {
-  position: relative;
-  padding-left: var(--space-6);
-}
-
-.statementRule::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background-color: var(--mc-green);
-  box-shadow: var(--glow-sm);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform var(--dur-slow) var(--ease-out);
-}
-
-.statementRule[data-visible="true"]::before {
-  transform: scaleY(1);
-}
-
-.statement {
-  margin: 0;
-  color: var(--text-primary);
-  font-family: var(--font-condensed);
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-wide);
-}
-
 /* ---------- HERO ---------- */
 
 .hero {
-  padding-top: calc(var(--header-h) + clamp(var(--space-12), 8vw, var(--space-24)));
+  padding-top: calc(var(--header-h) + clamp(var(--space-16), 10vw, var(--space-32)));
   padding-inline: var(--gutter);
   padding-bottom: clamp(var(--space-12), 7vw, var(--space-24));
   border-bottom: 1px solid var(--mc-green-deep);
@@ -265,7 +116,7 @@
 .heroSupport {
   margin: 0;
   font-family: var(--font-condensed);
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: var(--weight-semibold);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-wide);
@@ -287,7 +138,7 @@
   gap: var(--space-3);
   max-width: 44ch;
   color: var(--text-secondary);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   line-height: var(--leading-relaxed);
 }
 
@@ -302,7 +153,7 @@
   margin-top: var(--space-3);
   color: var(--mc-green);
   font-family: var(--font-condensed);
-  font-size: var(--text-xs);
+  font-size: var(--text-base);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
@@ -342,369 +193,155 @@
   aspect-ratio: 4 / 3;
 }
 
-/* Hero is above the fold — no reveal, so no scale-in. */
 .heroFigure .image {
   transform: none;
 }
 
-/* ---------- PULL QUOTE 1 ---------- */
+/* ---------- CHAPTERS ---------- */
 
-.quote {
-  padding-block: clamp(var(--space-16), 9vw, var(--space-32));
-  padding-inline: var(--gutter);
-  border-block: 1px solid var(--mc-green-deep);
-}
-
-.quoteInner {
+.chapters {
   max-width: var(--maxw-content);
   margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-.quoteLine {
-  margin: 0;
+.chapter {
+  padding-block: clamp(var(--space-16), 9vw, var(--space-32));
+  border-bottom: 1px solid var(--mc-green-deep);
+}
+
+.chapter:last-child {
+  border-bottom: 0;
+}
+
+/* Chapter marker: number, drawn rule, kicker. */
+.chapterHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: clamp(var(--space-6), 3vw, var(--space-10));
+}
+
+.number {
+  color: var(--mc-green-mid);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+
+.rule {
+  flex: none;
+  width: clamp(var(--space-8), 6vw, var(--space-16));
+  height: 2px;
+  background-color: var(--mc-green);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glow-sm);
+}
+
+.chapterBody {
+  display: grid;
+  gap: clamp(var(--space-8), 5vw, var(--space-16));
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .chapterBody {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  /* Alternate sides so the page reads as a spread. */
+  .chapter[data-flip] .copyCol {
+    order: 2;
+  }
+
+  .chapter[data-flip] .figureCol {
+    order: 1;
+  }
+
+  /* Image-free chapters centre on a narrower measure. */
+  .chapter[data-noimage] .chapterBody {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chapter[data-noimage] .copyCol {
+    max-width: 62ch;
+  }
+}
+
+.copyCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.figureCol {
+  min-width: 0;
+}
+
+.chapterHeading {
+  display: block;
   color: var(--text-primary);
   font-family: var(--font-display);
   font-size: var(--text-4xl);
-  font-weight: var(--weight-bold);
-  line-height: 1.15;
-  letter-spacing: var(--tracking-tight);
-}
-
-.quoteAccent {
-  color: var(--mc-green);
-}
-
-/* ---------- PULL QUOTE 2 ---------- */
-
-.quoteBig {
-  position: relative;
-  isolation: isolate;
-  padding-block: clamp(var(--space-20), 11vw, var(--space-32));
-  padding-inline: var(--gutter);
-  text-align: center;
-}
-
-.quoteBigInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-6);
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-}
-
-.quoteBigHeadline {
-  margin: 0;
-  color: var(--text-primary);
-  font-family: var(--font-display);
-  font-size: var(--text-6xl);
   font-weight: var(--weight-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
 
-.quoteBigSupport {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  color: var(--mc-green);
-  font-family: var(--font-condensed);
-  font-size: var(--text-lg);
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
-}
-
-/* ---------- Marked lists ---------- */
-
-.negations,
-.happenings,
-.strands {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+/* Cameron's own words, inside a chapter. */
+.quote {
   margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.negations li,
-.happenings li,
-.strands li {
-  position: relative;
   padding-left: var(--space-6);
-  color: var(--text-primary);
-  font-family: var(--font-condensed);
-  font-size: var(--text-xl);
-  letter-spacing: var(--tracking-wide);
+  border-left: 2px solid var(--mc-green);
 }
 
-.strands li {
-  color: var(--text-secondary);
-  font-size: var(--text-lg);
-}
-
-.negations li::before,
-.happenings li::before,
-.strands li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6em;
-  width: var(--space-4);
-  height: 2px;
-  background-color: var(--mc-green);
-  border-radius: var(--radius-pill);
-}
-
-/* ---------- 4 — THE VOICE ---------- */
-
-.voice {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding-block: clamp(var(--space-20), 11vw, var(--space-32));
-  padding-inline: var(--gutter);
-  border-block: 1px solid var(--mc-green-deep);
-}
-
-/* Stage-light wash from above. Static — it does not pulse. */
-.voiceGlow {
-  position: absolute;
-  z-index: -1;
-  top: -40%;
-  left: 50%;
-  width: min(120vw, 64rem);
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    circle,
-    var(--mc-glow) 0%,
-    var(--mc-atmosphere-deep) 34%,
-    transparent 68%
-  );
-  opacity: 0.38;
-  pointer-events: none;
-}
-
-.voiceInner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
-  max-width: 56ch;
-  margin-inline: auto;
-}
-
-.voiceHeadline {
-  display: block;
+.quoteText {
+  margin: 0 0 var(--space-3);
   color: var(--text-primary);
   font-family: var(--font-display);
-  font-size: var(--text-6xl);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  text-shadow: 0 0 34px var(--mc-glow);
-}
-
-.voiceBeat {
-  margin: 0;
-  color: var(--mc-green);
-  font-family: var(--font-condensed);
   font-size: var(--text-3xl);
   font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-}
-
-.voiceWord {
-  margin: 0;
-  color: var(--mc-green-bright);
-  font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
+  text-wrap: pretty;
 }
 
-/* ---------- 5 — convergence ---------- */
-
-.opened {
-  margin: 0;
+.quoteCite {
   color: var(--mc-green);
-  font-family: var(--font-condensed);
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-}
-
-.fullBleed {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  border-block: 1px solid var(--mc-green-deep);
-  aspect-ratio: 21 / 9;
-}
-
-.fullBleedImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ---------- 6 — what it became ---------- */
-
-.becameHead {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-4);
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-  margin-bottom: clamp(var(--space-8), 4vw, var(--space-12));
-}
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
-  padding: 0;
-  list-style: none;
-}
-
-.category {
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--mc-green-deep);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-family: var(--font-condensed);
-  font-size: var(--text-sm);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-}
-
-.collage {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-4);
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
-}
-
-.collageA {
-  grid-column: span 7;
-}
-
-.collageA .frame {
-  aspect-ratio: 16 / 10;
-}
-
-.collageB {
-  grid-column: span 5;
-}
-
-.collageB .frame {
-  aspect-ratio: 1;
-}
-
-.collageC {
-  grid-column: span 5;
-}
-
-.collageC .frame {
-  aspect-ratio: 4 / 3;
-}
-
-.collageD {
-  grid-column: span 7;
-}
-
-.collageD .frame {
-  aspect-ratio: 16 / 9;
-}
-
-/* ---------- 8 — piano ---------- */
-
-.piano {
-  padding-block: clamp(var(--space-20), 10vw, var(--space-32));
-  padding-inline: var(--gutter);
-}
-
-.pianoInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(var(--space-10), 5vw, var(--space-16));
-  max-width: var(--maxw-content);
-  margin-inline: auto;
-}
-
-.pianoFigure {
-  width: 100%;
-}
-
-.pianoFigure .frame {
-  aspect-ratio: 3 / 2;
-}
-
-.pianoCopy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-5);
-  max-width: 54ch;
-  text-align: center;
-}
-
-.pianoCopy .prose {
-  align-items: center;
-  text-align: center;
-}
-
-/* ---------- 11 — community ---------- */
-
-.community {
-  padding-block: clamp(var(--space-16), 8vw, var(--space-32));
-  padding-inline: var(--gutter);
-  border-top: 1px solid var(--mc-green-deep);
-}
-
-.chamberSlot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: stretch;
-  min-height: 5.5rem;
-  margin-top: var(--space-3);
-  padding: var(--space-5) var(--space-8);
-  border: 1px dashed var(--mc-green-deep);
-  border-radius: var(--radius-sm);
-}
-
-.chamberLabel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  color: var(--text-secondary);
   font-family: var(--font-condensed);
   font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
+  font-style: normal;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  text-align: center;
 }
 
-.chamberNote {
-  color: var(--mc-green);
-  font-size: var(--text-2xs);
-  letter-spacing: var(--tracking-widest);
+/* ---------- SOCO SPOTLIGHT ---------- */
+
+.spotlight {
+  padding-block: clamp(var(--space-16), 9vw, var(--space-32));
+  padding-inline: var(--gutter);
+  border-block: 1px solid var(--mc-green-deep);
 }
 
-/* ---------- 12 — closing ---------- */
+.spotlightInner {
+  display: grid;
+  gap: clamp(var(--space-10), 5vw, var(--space-16));
+  align-items: center;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+@media (min-width: 60rem) {
+  .spotlightInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+/* ---------- CLOSE ---------- */
 
 .closing {
   position: relative;
@@ -712,11 +349,9 @@
   overflow: hidden;
   padding-block: clamp(var(--space-20), 11vw, var(--space-32));
   padding-inline: var(--gutter);
-  border-top: 1px solid var(--mc-green-deep);
   text-align: center;
 }
 
-/* A green light wash. Deliberately NOT a logo mark. */
 .closingGlow {
   position: absolute;
   z-index: -1;
@@ -749,6 +384,33 @@
   text-align: center;
 }
 
+/* The interview's final exchange. */
+.exchange {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.question {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.answer {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-shadow: 0 0 24px var(--mc-glow);
+}
+
 .closingStatement {
   display: block;
   color: var(--mc-green);
@@ -776,7 +438,7 @@
   flex-direction: column;
   gap: var(--space-1);
   font-family: var(--font-condensed);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
 }
@@ -809,7 +471,7 @@
   padding: var(--space-3) var(--space-8);
   border-radius: var(--radius-sm);
   font-family: var(--font-condensed);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
@@ -851,68 +513,32 @@
 }
 
 /* ============================================================
-   MOBILE — reworked on purpose, not a stacked desktop.
+   MOBILE — reworked, not a stacked desktop.
    ============================================================ */
 
 @media (max-width: 60rem) {
-  .splitWide,
-  .splitFlip,
-  .communityInner {
+  .heroInner,
+  .chapterBody,
+  .spotlightInner {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Image leads every split, then the copy. */
-  .figureTall,
-  .figureWide,
-  .figurePortrait {
+  /* Image leads, copy follows. */
+  .figureCol {
     order: 1;
   }
 
   .copyCol {
     order: 2;
-    max-width: none;
-  }
-
-  .figureTall .frame,
-  .figurePortrait .frame {
-    aspect-ratio: 4 / 5;
-  }
-
-  .figureWide .frame {
-    aspect-ratio: 3 / 2;
   }
 
   .heroName {
     font-size: var(--text-5xl);
   }
 
-  .heroFigure {
+  .heroFigure,
+  .frame {
     aspect-ratio: 3 / 2;
-  }
-
-  .fullBleed {
-    aspect-ratio: 16 / 9;
-  }
-
-  /* Collage becomes two clean rows, not four cramped cells. */
-  .collageA,
-  .collageD {
-    grid-column: span 12;
-  }
-
-  .collageB,
-  .collageC {
-    grid-column: span 6;
-  }
-
-  .collageA .frame,
-  .collageD .frame {
-    aspect-ratio: 3 / 2;
-  }
-
-  .collageB .frame,
-  .collageC .frame {
-    aspect-ratio: 1;
   }
 
   .ctaPrimary,
@@ -927,49 +553,36 @@
 }
 
 @media (max-width: 40rem) {
-  /* Pull quotes still have to land hard on a phone. */
-  .quoteLine {
+  /* Long narrative in short chunks; headings stay readable. */
+  .chapterHeading {
     font-size: var(--text-3xl);
   }
 
-  .quoteBigHeadline {
-    font-size: var(--text-4xl);
+  .quoteText {
+    font-size: var(--text-2xl);
   }
 
-  .voiceHeadline {
-    font-size: var(--text-5xl);
+  .closingStatement,
+  .question {
+    font-size: var(--text-3xl);
   }
 
-  .closingStatement {
-    font-size: var(--text-4xl);
+  .eyebrow,
+  .kicker {
+    font-size: var(--text-xl);
   }
 
-  .h2Big {
-    font-size: var(--text-4xl);
-  }
-
-  .negations li,
-  .happenings li {
+  .prose,
+  .heroIntro {
     font-size: var(--text-lg);
   }
 
-  .fullBleed {
-    aspect-ratio: 4 / 3;
+  .number {
+    font-size: var(--text-2xl);
   }
 
-  /* Single column — no tiny side-by-side pairs. */
-  .collageB,
-  .collageC {
-    grid-column: span 12;
-  }
-
-  .collageB .frame,
-  .collageC .frame {
-    aspect-ratio: 3 / 2;
-  }
-
-  .category {
-    font-size: var(--text-xs);
+  .chapterHead {
+    gap: var(--space-3);
   }
 }
 
@@ -988,10 +601,5 @@
 
   .scrollArrow {
     animation: none;
-  }
-
-  .statementRule::before {
-    transform: scaleY(1);
-    transition: none;
   }
 }
