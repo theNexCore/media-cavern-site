@@ -345,15 +345,21 @@ keys removed. Do not merge the two.
 
 ## The winged record mark — SCOPED EXCEPTION
 
-`/public/images/media-cavern-winged-record-mark.png` is approved for **one
-placement only**: `/the-story`, chapter 07 (the name), right of the copy.
+`/public/images/media-cavern-winged-record-mark.png` is approved for **two
+placements, and only these two**:
 
-It does **not** unlock logo usage anywhere else. The header, footer and hero all
-keep their placeholder components. Do not reuse this file on any other page or
-in any other component.
+1. `/the-story`, chapter 07 (the name), right of the copy.
+2. The **sticky nav bar**, left slot, as the home button — visible only once
+   the brand row has scrolled away. Added 2026-08-29.
 
-The artwork has a **solid black background, no alpha** — it must never be placed
-on a lighter surface.
+It does **not** unlock logo usage anywhere else. The footer and hero keep their
+placeholder components, and so does the wordmark in the header brand row. Do
+not reuse this file beyond those two placements.
+
+The artwork now carries a **real alpha channel**. The background was removed by
+flood fill from the border rather than a luminance threshold — a threshold would
+have punched a hole straight through the black vinyl record in the middle. Only
+black actually connected to an edge is transparent.
 
 ## Quarantine
 

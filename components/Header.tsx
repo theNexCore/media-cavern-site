@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
@@ -21,9 +22,11 @@ import styles from "./Header.module.css";
    bar that stays is compact and the mark is not repeated at every
    scroll position.
 
-   The logo here remains the PLACEHOLDER component under the
-   standing logo rule. The winged-record mark used on /the-story is
-   a single scoped exception and is deliberately NOT used here.
+   The winged-record mark appears in the sticky bar as the home
+   button once the brand row scrolls away. That is its SECOND
+   approved placement, added 2026-08-29 alongside /the-story
+   section 07. It is still not a general unlock: those two
+   placements only.
 
    - Green active-state indicator on the current route
    - Logo returns home; there is no "Home" nav link
@@ -113,6 +116,26 @@ export default function Header() {
         data-menu-open={menuOpen || undefined}
       >
           <div className={styles.navInner}>
+            {/* Home button. Hidden until the brand row scrolls away,
+                then the mark stands in for the wordmark. */}
+            <div className={styles.navBrand}>
+              <Link
+                href="/"
+                className={styles.markLink}
+                aria-label="Media Cavern — home"
+                tabIndex={scrolled ? 0 : -1}
+                aria-hidden={scrolled ? undefined : true}
+              >
+                <Image
+                  src="/images/media-cavern-winged-record-mark.png"
+                  alt=""
+                  width={1717}
+                  height={916}
+                  className={styles.mark}
+                />
+              </Link>
+            </div>
+
             <nav className={styles.nav} aria-label="Primary">
               <ul className={styles.navList} role="list">
                 {NAV_LINKS.map((link) => {

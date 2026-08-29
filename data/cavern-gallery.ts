@@ -505,14 +505,6 @@ export const CAVERN_IMAGES: readonly CavernImage[] = [
     orientation: "portrait",
   },
   {
-    src: "/images/cd-display-staircase-crop.jpg",
-    width: 512,
-    height: 640,
-    alt: "Tighter crop of the same under-staircase CD display in the Media Cavern building",
-    category: "music",
-    orientation: "portrait",
-  },
-  {
     src: "/images/new-arrivals-cd-display-case.jpg",
     width: 1067,
     height: 800,
