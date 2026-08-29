@@ -63,14 +63,19 @@
 
 /* ---------- Logo mount ---------- */
 
+/* Wordmark sizing. 34rem -> 57.8rem is +70%.
+   min(100%, …) keeps it inside the gutter on narrow viewports, so
+   it scales up on desktop without ever overflowing. */
 .markWrap {
-  width: min(100%, 34rem);
+  width: min(100%, 57.8rem);
   margin-block: var(--space-2) var(--space-1);
 }
 
 @media (max-width: 40rem) {
+  /* 20rem -> 34rem, same +70%. Below ~24rem of usable width the
+     100% branch takes over and it simply fills the column. */
   .markWrap {
-    width: min(100%, 20rem);
+    width: min(100%, 34rem);
   }
 }
 

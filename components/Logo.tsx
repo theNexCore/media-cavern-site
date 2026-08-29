@@ -54,7 +54,7 @@ export default function Logo({ width, priority = false, className }: LogoProps) 
         width={LOGO.width}
         height={LOGO.height}
         priority={priority}
-        sizes="(max-width: 48rem) 60vw, 34rem"
+        sizes="(max-width: 48rem) 92vw, 58rem"
         className={styles.image}
       />
     </span>
