@@ -65,6 +65,9 @@ export type Chapter = {
     caption?: string;
     /** CSS object-position, for frames whose subject is off-centre. */
     objectPosition?: string;
+    /** Show the whole image — no crop, no frame box. For artwork
+        rather than photography. */
+    whole?: boolean;
     /** Global clip-path mask from globals.css. */
     edge?: "a" | "b" | "c";
   };
@@ -111,9 +114,13 @@ export const CHAPTERS: readonly Chapter[] = [
       alt: "The illuminated CD Warehouse storefront sign at night.",
       caption: "The sign he kept walking under.",
       edge: "a",
-      /* The sign sits right of centre in frame; a centred crop cut it.
-         Percentage keeps the correction responsive. */
-      objectPosition: "62% 50%",
+      /* Half an inch of travel, measured rather than guessed: only
+         184px of horizontal overflow exists at desktop, so half an
+         inch (96px) is ~26% of the crop range. 62% -> 36% moves the
+         PICTURE right within the frame, which brings the whole
+         "CD WAREHOUSE" sign into view. Going the other way to 88%
+         clipped the C. Percentage keeps it responsive across widths. */
+      objectPosition: "36% 50%",
     },
   },
   {
@@ -213,6 +220,9 @@ export const CHAPTERS: readonly Chapter[] = [
       height: 916,
       alt: "The Media Cavern mark: a black vinyl record labelled Media Cavern, flanked by green neon wings.",
       caption: "Cavern, not cave. Not a warehouse either.",
+      /* Artwork, not a photograph — never cropped, and no frame box
+         around it. The background is a real alpha channel. */
+      whole: true,
     },
   },
   {

@@ -146,7 +146,7 @@ export default function TheStoryPage() {
                   <figure className={styles.figure}>
                     <div
                       className={[
-                        styles.frame,
+                        chapter.image.whole ? styles.plate : styles.frame,
                         chapter.image.edge ? `image-edge-${chapter.image.edge}` : "",
                       ]
                         .filter(Boolean)
@@ -159,7 +159,9 @@ export default function TheStoryPage() {
                         height={chapter.image.height}
                         loading="lazy"
                         sizes="(max-width: 60rem) 100vw, 42vw"
-                        className={styles.image}
+                        className={
+                          chapter.image.whole ? styles.artwork : styles.image
+                        }
                         /* Percentage crop for frames whose subject sits
                            off-centre; responsive by construction. */
                         style={

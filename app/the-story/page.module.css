@@ -603,3 +603,29 @@
     animation: none;
   }
 }
+
+/* ---------- Artwork plate ----------
+   For the winged mark in chapter 07. Artwork, not photography: it is
+   shown whole, never cropped, with no border box and no background
+   panel. The PNG carries a real alpha channel, so it sits directly
+   on the page. */
+
+.plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.artwork {
+  width: 100%;
+  height: auto;
+  /* contain, not cover — the whole mark or nothing. */
+  object-fit: contain;
+  transform: none;
+}
+
+/* The reveal scales photographs slightly; the mark stays put. */
+[data-reveal][data-visible="true"] .artwork {
+  transform: none;
+}
