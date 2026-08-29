@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import LogoPlaceholder from "./LogoPlaceholder";
+import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import { NAV_LINKS, isActiveRoute } from "./nav-links";
 import styles from "./Header.module.css";
@@ -73,7 +73,8 @@ export default function Header() {
             aria-label="Media Cavern — home"
             aria-current={isHome ? "page" : undefined}
           >
-            <LogoPlaceholder />
+            {/* Above the fold on every route — not lazy. */}
+            <Logo priority />
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">

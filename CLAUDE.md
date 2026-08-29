@@ -35,7 +35,7 @@ button only when a real URL is set. Never a dead button.
 | `/app/layout.tsx` | Root layout; binds the three `next/font` faces to CSS variables. |
 | `/components/Header.tsx` | Desktop header. Transparent → near-black on scroll, green active indicator. |
 | `/components/MobileNav.tsx` | Full-screen overlay nav. Focus trap, Escape, scroll lock. |
-| `/components/LogoPlaceholder.tsx` | 2.2:1 placeholder with the single logo swap point. |
+| `/components/Logo.tsx` | The wordmark. One swap point for the SVG; used by header, footer and hero. |
 | `/components/nav-links.ts` | Single source of truth for nav routes. Header and MobileNav both read it. |
 | `/components/Reveal.tsx` | Restrained scroll reveal. Reveals once, then disconnects. Degrades to visible without JS. |
 | `/components/home/Hero.tsx` | Section 1. Near-full viewport, no photography, logo mount point. |
@@ -191,10 +191,18 @@ All of it is quarantined in bucket C: `old-media-cavern-logo.jpg`,
 wordmark, six "NOW OPEN" promo banners, and four AI-generated comps. The banners and
 comps are built around the wordmark, so they are quarantined too.
 
-Approved SVG artwork is **not ready yet**. Until it lands:
+**The approved wordmark landed 2026-08-29** as an interim PNG
+(`/public/brand/media-cavern-wordmark.png`, 1774x887, 2:1). It renders in the
+header, footer and hero through one component, `components/Logo.tsx`. The
+layered SVG with the winged record is still in progress; when it arrives it
+swaps at the `LOGO` constant in that file and nothing else changes.
 
-- Header, footer, and hero use **placeholder components** with correct aspect ratios
-  and **a single clear swap point each**.
+The artwork is RGB with no alpha, so `Logo.module.css` applies
+`mix-blend-mode: screen` to drop the baked-in black. That is what keeps it from
+sitting in a black rectangle on the scrolled header. Remove it only when
+transparent artwork or the SVG replaces the PNG.
+
+The rules that still bind:
 - **Do not** trace, recreate, or approximate the logo.
 - **Do not** render the wordmark as HTML text.
 - **Do not** substitute an AI-generated or "temporary" mark.

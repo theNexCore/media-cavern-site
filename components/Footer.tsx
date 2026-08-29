@@ -1,4 +1,4 @@
-import LogoPlaceholder from "./LogoPlaceholder";
+import Logo from "./Logo";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 import { SITE, FEATURES } from "@/data/site";
 import styles from "./Footer.module.css";
@@ -8,8 +8,7 @@ import styles from "./Footer.module.css";
 
    Three columns: Visit / Hours / Connect.
 
-   The logo is a PLACEHOLDER, same absolute rule as the header and
-   hero. The wordmark is never rendered as HTML text.
+   The wordmark renders as artwork via <Logo />, never as HTML text.
 
    "Site powered by NexCore" is behind FEATURES.poweredByNexCore in
    /data/site.ts and is OFF by default. Flip that one boolean to
@@ -21,8 +20,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          {/* Same swap point discipline as everywhere else. */}
-          <LogoPlaceholder />
+          <Logo />
           <p className={styles.tagline}>{SITE.tagline}</p>
           <ul className={styles.credentials} role="list">
             {SITE.credentials.map((item) => (

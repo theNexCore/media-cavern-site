@@ -1,19 +1,13 @@
 import Link from "next/link";
-import LogoPlaceholder from "../LogoPlaceholder";
+import Logo from "../Logo";
 import styles from "./Hero.module.css";
 
 /* ============================================================
    HERO — near-full viewport, pure black, no photography.
 
-   THE LOGO RULE APPLIES HERE EXACTLY AS IT DOES IN THE HEADER.
-   The approved layered SVG with the rotating record is NOT ready.
-   This section therefore does NOT:
-     - build or fake the record rotation
-     - trace, recreate or approximate the wordmark
-     - substitute any other artwork
-
-   It renders LogoPlaceholder at hero scale inside a single marked
-   mount point. See the block below.
+   The approved wordmark now renders here via <Logo />. The layered
+   SVG with the rotating record is still in progress; when it lands
+   it swaps inside components/Logo.tsx and this file is untouched.
    ============================================================ */
 
 const SECONDARY = [
@@ -35,25 +29,16 @@ export default function Hero() {
         <p className={styles.eyebrow}>South County • St. Louis</p>
 
         {/* ==========================================================
-            ANIMATED LOGO MOUNT POINT
+            LOGO MOUNT POINT
 
-            When the approved layered SVG lands, replace the single
-            <LogoPlaceholder /> below with the animated component:
+            Renders the approved wordmark. When the layered SVG with
+            the rotating record is ready, it swaps inside
+            components/Logo.tsx - nothing here changes.
 
-              <MediaCavernMark
-                className={styles.mark}
-                priority
-              />
-
-            Keep the wrapping <div className={styles.markWrap}>: it
-            owns the hero-scale width, the centering, and the space
-            reserved for the lockup. Nothing else in this file needs
-            to change.
-
-            Do NOT add a rotation animation here in the meantime.
+            Do NOT build a rotation animation here in the meantime.
             ========================================================== */}
         <div className={styles.markWrap}>
-          <LogoPlaceholder width="100%" />
+          <Logo width="100%" priority />
         </div>
         {/* ================ END MOUNT POINT ========================= */}
 

@@ -1,0 +1,32 @@
+/* ============================================================
+   MEDIA CAVERN WORDMARK
+   The wrapper owns the lockup's footprint so swapping the artwork
+   for the SVG shifts nothing.
+   ============================================================ */
+
+.logo {
+  display: block;
+  width: var(--logo-w-override, var(--logo-w));
+  aspect-ratio: var(--logo-aspect); /* 2:1, measured from the artwork */
+  flex: none;
+}
+
+@media (max-width: 48rem) {
+  .logo {
+    width: var(--logo-w-override, var(--logo-w-sm));
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* The artwork has an opaque black background (RGB, no alpha).
+     `screen` renders black as transparent and keeps the green, so
+     the wordmark sits cleanly on the scrolled header's translucent
+     bar instead of inside a black rectangle. The site ground is
+     pure #000, so this is a no-op everywhere else.
+
+     Remove this line once transparent artwork (or the SVG) lands. */
+  mix-blend-mode: screen;
+}

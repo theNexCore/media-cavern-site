@@ -122,7 +122,7 @@
      up exactly with the header bar it replaces. */
   --header-h: 4.5rem;
   --header-h-scrolled: 3.75rem;
-  --logo-aspect: 2.2; /* approved wordmark is a horizontal ~2.2:1 lockup */
+  --logo-aspect: 2; /* measured from the supplied wordmark: 1774x887 */
   --logo-w: 10.5rem;
   --logo-w-sm: 8.25rem;
 
