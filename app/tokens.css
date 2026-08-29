@@ -36,15 +36,14 @@
   --mc-veil-deep: rgba(6, 77, 1, 0.35);
   --mc-atmosphere-deep: rgba(6, 77, 1, 0.22);
 
-  /* On pure black, dimming text with alpha reads as softness rather
-     than hierarchy — body copy looked blurry rather than secondary.
-     Headings and body are both crisp white now; hierarchy is carried
-     by size, weight and family instead. The two tokens stay separate
-     so they can diverge again without touching every component.
-     --text-muted remains dimmed, for captions and metadata only. */
-  --text-primary: var(--mc-white);             /* 21.0:1 */
-  --text-secondary: var(--mc-white);           /* 21.0:1 */
-  --text-muted: rgba(255, 255, 255, 0.7);      /* 10.0:1 */
+  /* NO GREY LETTERING. On pure black, dimming text with alpha reads
+     as softness rather than hierarchy. Every text token is pure
+     white; hierarchy is carried by size, weight, family and colour
+     (brand green), never by dimming. The three tokens stay separate
+     so they can diverge without touching every component. */
+  --text-primary: var(--mc-white);   /* 21.0:1 */
+  --text-secondary: var(--mc-white); /* 21.0:1 */
+  --text-muted: var(--mc-white);     /* 21.0:1 */
 
   /* ---------- Surfaces ----------
      Derived from --mc-black only. No gray tokens: these are pure

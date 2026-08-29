@@ -223,7 +223,7 @@
 }
 
 .number {
-  color: var(--mc-green-mid);
+  color: var(--mc-green);
   font-family: var(--font-display);
   font-size: var(--text-3xl);
   font-weight: var(--weight-bold);
