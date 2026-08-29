@@ -1,0 +1,50 @@
+/* Placeholder for the approved wordmark.
+   The .logo wrapper is permanent — it owns the lockup's footprint.
+   .frame and .tick are scaffolding and get deleted at swap time. */
+
+.logo {
+  display: block;
+  width: var(--logo-w-override, var(--logo-w));
+  aspect-ratio: var(--logo-aspect); /* ~2.2:1 horizontal lockup */
+  flex: none;
+}
+
+@media (max-width: 48rem) {
+  .logo {
+    width: var(--logo-w-override, var(--logo-w-sm));
+  }
+}
+
+/* --- scaffolding below: delete when the real artwork lands --- */
+
+.frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    var(--mc-veil-deep) 50%,
+    transparent 100%
+  );
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.logo:hover .frame {
+  border-color: var(--mc-green-mid);
+}
+
+/* A single short rule, centered. Reads as "artwork pending",
+   carries no letterforms, and cannot be mistaken for a mark. */
+.tick {
+  display: block;
+  width: 38%;
+  height: 2px;
+  background-color: var(--mc-green);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glow-sm);
+  opacity: 0.75;
+}

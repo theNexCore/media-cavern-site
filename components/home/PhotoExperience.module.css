@@ -1,0 +1,229 @@
+/* ============================================================
+   SECTION 4 — THE CAVERN PHOTO EXPERIENCE
+   Editorial gallery. Varied spans and aspect ratios by index.
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+  background-color: var(--surface-page);
+}
+
+.inner {
+  max-width: var(--maxw-wide);
+  margin-inline: auto;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 34ch;
+  margin-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.headline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.support {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(var(--space-6), 3vw, var(--space-12));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cell {
+  min-width: 0;
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  height: 100%;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-color: var(--mc-black);
+}
+
+/* The frame reserves the space, so cropping never shifts layout. */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ---------- Desktop composition ----------
+   Three uneven rows, spans summing to 12:
+     7 + 5   |   5 + 3 + 4   |   6 + 3 + 3
+   Aspect ratios alternate so no two neighbours match. */
+
+@media (min-width: 64rem) {
+  .cell[data-index="0"] {
+    grid-column: span 7;
+  }
+  .cell[data-index="0"] .frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .cell[data-index="1"] {
+    grid-column: span 5;
+  }
+  .cell[data-index="1"] .frame {
+    aspect-ratio: 3 / 4;
+  }
+
+  .cell[data-index="2"] {
+    grid-column: span 5;
+  }
+  .cell[data-index="2"] .frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .cell[data-index="3"] {
+    grid-column: span 3;
+  }
+  .cell[data-index="3"] .frame {
+    aspect-ratio: 3 / 4;
+  }
+
+  .cell[data-index="4"] {
+    grid-column: span 4;
+  }
+  .cell[data-index="4"] .frame {
+    aspect-ratio: 1;
+  }
+
+  .cell[data-index="5"] {
+    grid-column: span 6;
+  }
+  .cell[data-index="5"] .frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .cell[data-index="6"] {
+    grid-column: span 3;
+  }
+  .cell[data-index="6"] .frame {
+    aspect-ratio: 1;
+  }
+
+  .cell[data-index="7"] {
+    grid-column: span 3;
+  }
+  .cell[data-index="7"] .frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Nudge two frames off the baseline so rows don't read as bands. */
+  .cell[data-index="1"],
+  .cell[data-index="6"] {
+    align-self: end;
+  }
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  .cell {
+    grid-column: span 6;
+  }
+
+  .cell[data-index="0"],
+  .cell[data-index="5"] {
+    grid-column: span 12;
+  }
+
+  .cell .frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .cell[data-index="0"] .frame,
+  .cell[data-index="5"] .frame {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* ---------- Mobile ----------
+   Single column, reordered rather than left in source order: the
+   widest, most legible frames lead and close, and the two treated
+   edges are spaced apart so the effect never repeats back to back. */
+
+@media (max-width: 39.99rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+
+  .cell {
+    grid-column: 1;
+  }
+
+  .cell[data-index="0"] {
+    order: 1;
+  } /* piano — widest opener */
+  .cell[data-index="2"] {
+    order: 2;
+  } /* vhs wall, torn edge */
+  .cell[data-index="3"] {
+    order: 3;
+  } /* counter, portrait */
+  .cell[data-index="5"] {
+    order: 4;
+  } /* punk mural */
+  .cell[data-index="6"] {
+    order: 5;
+  } /* stones poster, fracture */
+  .cell[data-index="1"] {
+    order: 6;
+  } /* aisle, portrait */
+  .cell[data-index="4"] {
+    order: 7;
+  } /* metal sign, cut paper */
+  .cell[data-index="7"] {
+    order: 8;
+  } /* new arrivals */
+
+  .cell .frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  /* Keep genuinely vertical photographs vertical. */
+  .cell[data-index="1"] .frame,
+  .cell[data-index="3"] .frame {
+    aspect-ratio: 4 / 5;
+  }
+}

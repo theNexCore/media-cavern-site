@@ -1,0 +1,162 @@
+/* ============================================================
+   SECTION 2 — MORE THAN A STORE
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+  background-color: var(--surface-page);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(var(--space-10), 6vw, var(--space-20));
+  align-items: center;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+@media (min-width: 60rem) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  }
+}
+
+/* ---------- Copy ---------- */
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 46ch;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* Grenze Gotisch, used sparingly — a section headline is exactly
+   the job it is reserved for. */
+.headline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.body p {
+  margin: 0;
+}
+
+/* "Come dig." earns emphasis without becoming a heading. */
+.kicker {
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ---------- Media ---------- */
+
+.media {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  gap: var(--space-4);
+}
+
+.figureWide,
+.figureTall {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-color: var(--mc-black);
+}
+
+/* Asymmetric on purpose: the wide frame carries the section and
+   the tall one overlaps up into it. */
+.figureWide {
+  grid-column: 1 / span 9;
+  aspect-ratio: 4 / 3;
+}
+
+.figureTall {
+  grid-column: 8 / span 5;
+  grid-row: 1;
+  aspect-ratio: 3 / 4;
+  align-self: end;
+  margin-bottom: calc(var(--space-10) * -1);
+  box-shadow: 0 0 0 6px var(--mc-black); /* separates the overlap */
+}
+
+/* Cells own the aspect ratio, so the images crop without CLS. */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 60rem) {
+  /* Mobile is reordered, not collapsed: the establishing shot leads,
+     copy follows, and the tall frame closes the section. */
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .copy {
+    order: 2;
+    max-width: none;
+  }
+
+  .media {
+    order: 1;
+    gap: var(--space-3);
+  }
+
+  .figureWide {
+    grid-column: 1 / span 12;
+    aspect-ratio: 3 / 2;
+  }
+
+  .figureTall {
+    display: none; /* one strong frame beats two cramped ones */
+  }
+}
+
+@media (max-width: 60rem) and (min-width: 34rem) {
+  /* Enough room to keep both, side by side rather than overlapped. */
+  .figureWide {
+    grid-column: 1 / span 8;
+  }
+
+  .figureTall {
+    display: block;
+    grid-column: 9 / span 4;
+    grid-row: 1;
+    margin-bottom: 0;
+    box-shadow: none;
+    aspect-ratio: 2 / 3;
+  }
+}

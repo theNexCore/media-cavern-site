@@ -1,0 +1,175 @@
+/* ============================================================
+   SECTION 11 — SHIPPING
+   No cart, no checkout. The phone number is the conversion.
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+  background-color: var(--surface-page);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
+  align-items: start;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+@media (min-width: 56rem) {
+  .inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 44ch;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.headline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+.body p {
+  margin: 0;
+}
+
+/* The phone number is the loudest thing in the section. */
+.phoneBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.phoneLabel {
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.phone {
+  align-self: flex-start;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-shadow: 0 0 18px var(--mc-glow);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.phone:hover {
+  color: var(--mc-green-bright);
+}
+
+.phone:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---------- What ships ---------- */
+
+.listWrap {
+  padding: clamp(var(--space-6), 3vw, var(--space-8));
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+}
+
+.listTitle {
+  margin: 0 0 var(--space-5);
+  color: var(--text-primary);
+  font-family: var(--font-condensed);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  padding-left: var(--space-5);
+  color: var(--text-secondary);
+  font-family: var(--font-condensed);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Green tick marker — no bullet glyphs. */
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: var(--space-3);
+  height: 2px;
+  background-color: var(--mc-green);
+  border-radius: var(--radius-pill);
+}
+
+.note {
+  margin: var(--space-6) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+@media (max-width: 34rem) {
+  .list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .phone {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone {
+    transition: none;
+  }
+}

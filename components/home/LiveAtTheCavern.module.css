@@ -1,0 +1,225 @@
+/* ============================================================
+   SECTION 6 — LIVE AT THE CAVERN
+   Lead frame plus two supports, under a restrained stage wash.
+   ============================================================ */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+  background-color: var(--surface-page);
+  isolation: isolate;
+}
+
+/* Static spotlight wash. No animation, no pulse — it reads as a lamp
+   left on above the stage, not as an effect. */
+.spotlight {
+  position: absolute;
+  z-index: -1;
+  top: -10%;
+  right: -5%;
+  width: min(90vw, 56rem);
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    var(--mc-glow) 0%,
+    var(--mc-atmosphere-deep) 38%,
+    transparent 70%
+  );
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.inner {
+  display: grid;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
+  align-items: center;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+@media (min-width: 60rem) {
+  .inner {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+}
+
+/* ---------- Copy ---------- */
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 42ch;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.headline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.body p {
+  margin: 0;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background-color: var(--mc-green);
+  border: 1px solid var(--mc-green);
+  border-radius: var(--radius-sm);
+  color: var(--mc-black);
+  font-family: var(--font-condensed);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  box-shadow: var(--glow-sm);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.cta:hover {
+  background-color: var(--mc-green-bright);
+  border-color: var(--mc-green-bright);
+  color: var(--mc-black);
+  box-shadow: var(--glow-bright);
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---------- Media ---------- */
+
+.media {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.figureLead,
+.figureCorner,
+.figurePlayer {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-color: var(--mc-black);
+}
+
+/* Edge-light on the lead frame only — the crowd shot is the subject
+   of the section, so it gets the lamp. */
+.figureLead {
+  grid-column: 1 / span 12;
+  aspect-ratio: 3 / 2;
+  border-color: var(--mc-green-mid);
+  box-shadow: var(--glow-md);
+}
+
+.figureCorner {
+  grid-column: 1 / span 7;
+  aspect-ratio: 16 / 9;
+}
+
+.figurePlayer {
+  grid-column: 8 / span 5;
+  aspect-ratio: 3 / 4;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 60rem) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Mobile leads with the crowd shot — it sells the section faster
+     than any sentence — then the copy, then the supports. */
+  .media {
+    order: 1;
+    gap: var(--space-3);
+  }
+
+  .copy {
+    order: 2;
+    max-width: none;
+  }
+
+  .cta {
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .figureLead {
+    aspect-ratio: 4 / 3;
+  }
+
+  .figureCorner {
+    grid-column: 1 / span 7;
+    aspect-ratio: 4 / 3;
+  }
+
+  .figurePlayer {
+    grid-column: 8 / span 5;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 30rem) {
+  /* Below this the two supports side by side get too small to read;
+     the performer frame carries more than the empty stage does. */
+  .figureCorner {
+    display: none;
+  }
+
+  .figurePlayer {
+    grid-column: 1 / span 12;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+}

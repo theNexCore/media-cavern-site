@@ -1,0 +1,92 @@
+/* ============================================================
+   SECTION 10 — SOUTH COUNTY CHAMBER
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+  background-color: var(--surface-page);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(var(--space-8), 5vw, var(--space-16));
+  align-items: center;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+  padding-block: clamp(var(--space-8), 4vw, var(--space-12));
+  border-block: 1px solid var(--mc-green-deep);
+}
+
+@media (min-width: 56rem) {
+  .inner {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 54ch;
+}
+
+.headline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.body {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+/* Reserved space for the Chamber's mark. Sized to a typical
+   horizontal logo lockup so dropping one in shifts nothing. */
+.markWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6.25rem;
+  padding: var(--space-6);
+  border: 1px dashed var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+}
+
+.markLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+  font-family: var(--font-condensed);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.markNote {
+  color: var(--mc-green);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-widest);
+}
+
+@media (max-width: 56rem) {
+  .markWrap {
+    order: 2;
+  }
+
+  .copy {
+    order: 1;
+    max-width: none;
+  }
+}

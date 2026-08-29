@@ -1,0 +1,78 @@
+/* ============================================================
+   /the-cavern
+   ============================================================ */
+
+.page {
+  background-color: var(--surface-page);
+}
+
+.hero {
+  padding-top: calc(var(--header-h) + clamp(var(--space-12), 8vw, var(--space-24)));
+  padding-inline: var(--gutter);
+  padding-bottom: clamp(var(--space-10), 5vw, var(--space-16));
+}
+
+.heroInner {
+  display: grid;
+  gap: clamp(var(--space-6), 4vw, var(--space-12));
+  align-items: end;
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+@media (min-width: 56rem) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.headline {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 46ch;
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+.support p {
+  margin: 0;
+}
+
+.kicker {
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.body {
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-bottom: var(--space-section);
+}
+
+.count {
+  margin: var(--space-6) 0 var(--space-8);
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}

@@ -1,0 +1,180 @@
+/* ============================================================
+   THE CAVERN — FILTER BAR + GALLERY
+   ============================================================ */
+
+.filterBar {
+  padding-block: var(--space-5);
+  border-block: 1px solid var(--mc-green-deep);
+}
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filter {
+  position: relative;
+  display: block;
+  padding: var(--space-2) 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.filter:hover {
+  color: var(--mc-green-bright);
+}
+
+.filter[data-active] {
+  color: var(--mc-green);
+}
+
+.filter:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Same lit-rule language as the header's active indicator. */
+.filterRule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--mc-green);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glow-sm);
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform var(--dur-mid) var(--ease-out),
+    opacity var(--dur-mid) var(--ease-out);
+}
+
+.filter[data-active] .filterRule {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.filter:hover .filterRule {
+  transform: scaleX(1);
+  opacity: 0.4;
+  background-color: var(--mc-green-bright);
+}
+
+.filter[data-active]:hover .filterRule {
+  opacity: 1;
+  background-color: var(--mc-green);
+}
+
+.count {
+  margin: var(--space-6) 0 var(--space-8);
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(var(--space-4), 2vw, var(--space-8));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cell {
+  min-width: 0;
+  /* Entry is a fade only. Filtering should feel like a change of
+     view, not a re-animation of the page. */
+  animation: cell-in var(--dur-mid) var(--ease-out) both;
+}
+
+@keyframes cell-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-color: var(--mc-black);
+  /* Each frame keeps its own shape, so the grid stays editorial
+     rather than becoming a uniform tile wall. */
+  aspect-ratio: 3 / 2;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.cell[data-orientation="portrait"] .frame {
+  aspect-ratio: 3 / 4;
+}
+
+.cell[data-orientation="square"] .frame {
+  aspect-ratio: 1;
+}
+
+.cell:hover .frame {
+  border-color: var(--mc-green-mid);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Landscape frames get more height on a narrow screen so detail
+     survives; portraits stay portrait. */
+  .cell[data-orientation="landscape"] .frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .filterList {
+    gap: var(--space-2) var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell {
+    animation: none;
+  }
+
+  .filter,
+  .filterRule,
+  .frame {
+    transition: none;
+  }
+}

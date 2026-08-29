@@ -1,0 +1,267 @@
+/* ============================================================
+   HERO
+   Near-full viewport. Pure black. No photography behind it.
+   ============================================================ */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Near-full, not full: leaves a sliver of the next section
+     visible so the page reads as scrollable. svh keeps mobile
+     browser chrome from cropping it. */
+  min-height: 92svh;
+  /* Clears the fixed header, then balances the optical weight. */
+  padding: calc(var(--header-h) + var(--space-16)) var(--gutter)
+    var(--space-20);
+  background-color: var(--surface-page);
+  text-align: center;
+}
+
+/* Faint green atmosphere. Sits on pure black, which is why the
+   glow reads at all — see the background rule in tokens.css. */
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(115vw, 68rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    var(--mc-glow) 0%,
+    var(--mc-atmosphere-deep) 34%,
+    transparent 68%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: var(--maxw-content);
+}
+
+/* ---------- Eyebrow ---------- */
+
+.eyebrow {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* ---------- Logo mount ---------- */
+
+.markWrap {
+  width: min(100%, 34rem);
+  margin-block: var(--space-2) var(--space-1);
+}
+
+@media (max-width: 40rem) {
+  .markWrap {
+    width: min(100%, 20rem);
+  }
+}
+
+/* ---------- Support line ---------- */
+
+.support {
+  max-width: 20ch;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-condensed);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* ---------- Secondary category line ---------- */
+
+.secondary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+  max-width: 46rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.secondaryItem {
+  position: relative;
+  color: var(--text-muted);
+  font-family: var(--font-condensed);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* Green tick between items, never after the last. */
+.secondaryItem + .secondaryItem::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--space-4) / -2 - 1px);
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background-color: var(--mc-green-deep);
+  transform: translateY(-50%);
+}
+
+/* ---------- Calls to action ---------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-condensed);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+/* Solid green on black: the highest-contrast pairing available. */
+.ctaPrimary {
+  background-color: var(--mc-green);
+  border: 1px solid var(--mc-green);
+  color: var(--mc-black);
+  box-shadow: var(--glow-sm);
+}
+
+.ctaPrimary:hover {
+  background-color: var(--mc-green-bright);
+  border-color: var(--mc-green-bright);
+  color: var(--mc-black);
+  box-shadow: var(--glow-bright);
+}
+
+.ctaSecondary {
+  background-color: transparent;
+  /* Deep green is a border value only — never text. */
+  border: 1px solid var(--mc-green-deep);
+  color: var(--text-primary);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--mc-green);
+  color: var(--mc-green);
+}
+
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---------- Scroll cue ---------- */
+
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-8);
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 1px;
+  height: var(--space-12);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* A single travelling rule. It drifts down and fades — it does not
+   bounce, pulse or scale. */
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--mc-green) 45%,
+    transparent 100%
+  );
+  animation: scroll-drift 2600ms var(--ease-in-out) infinite;
+}
+
+@keyframes scroll-drift {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    min-height: 88svh;
+    padding-bottom: var(--space-16);
+  }
+
+  /* Full-width stacked buttons read better than two cramped pills. */
+  .actions {
+    flex-direction: column;
+    align-self: stretch;
+    gap: var(--space-3);
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollLine {
+    animation: none;
+    /* Hold it mid-travel so the cue still reads as a mark. */
+    opacity: 0.85;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    transition: none;
+  }
+}
