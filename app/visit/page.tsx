@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { InstagramIcon, FacebookIcon } from "@/components/SocialIcons";
+import { SOCIAL_ICONS } from "@/components/SocialIcons";
 import { SITE } from "@/data/site";
 import styles from "./page.module.css";
 
@@ -93,28 +93,22 @@ export default function VisitPage() {
           <Reveal delay={180} className={styles.block}>
             <h2 className={styles.blockTitle}>Follow</h2>
             <ul className={styles.social} role="list">
-              <li>
-                <a
-                  className={styles.socialLink}
-                  href={SITE.social.instagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramIcon className={styles.icon} size={20} />
-                  {SITE.social.instagram.handle}
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.socialLink}
-                  href={SITE.social.facebook.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FacebookIcon className={styles.icon} size={20} />
-                  {SITE.social.facebook.label}
-                </a>
-              </li>
+              {SITE.social.map((s) => {
+                const Icon = SOCIAL_ICONS[s.id];
+                return (
+                  <li key={s.id}>
+                    <a
+                      className={styles.socialLink}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon className={styles.icon} size={20} />
+                      {s.handle}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </Reveal>
 

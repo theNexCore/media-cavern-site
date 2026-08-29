@@ -41,7 +41,7 @@ export default function StructuredData() {
       opens: row.opens,
       closes: row.closes,
     })),
-    sameAs: [SITE.social.instagram.url, SITE.social.facebook.url],
+    sameAs: SITE.social.map((s) => s.url),
   };
 
   return (

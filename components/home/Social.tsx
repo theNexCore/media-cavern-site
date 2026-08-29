@@ -1,5 +1,5 @@
 import Reveal from "../Reveal";
-import { InstagramIcon, FacebookIcon } from "../SocialIcons";
+import { SOCIAL_ICONS } from "../SocialIcons";
 import { SOCIAL } from "@/data/home-copy";
 import { SITE } from "@/data/site";
 import styles from "./Social.module.css";
@@ -32,39 +32,24 @@ export default function Social() {
         </div>
 
         <Reveal delay={120} className={styles.links}>
-          <a
-            className={styles.link}
-            href={SITE.social.instagram.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <InstagramIcon className={styles.icon} size={28} />
-            <span className={styles.linkText}>
-              <span className={styles.linkLabel}>
-                {SITE.social.instagram.label}
-              </span>
-              <span className={styles.linkHandle}>
-                {SITE.social.instagram.handle}
-              </span>
-            </span>
-          </a>
-
-          <a
-            className={styles.link}
-            href={SITE.social.facebook.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FacebookIcon className={styles.icon} size={28} />
-            <span className={styles.linkText}>
-              <span className={styles.linkLabel}>
-                {SITE.social.facebook.label}
-              </span>
-              <span className={styles.linkHandle}>
-                {SITE.social.facebook.handle}
-              </span>
-            </span>
-          </a>
+          {SITE.social.map((s) => {
+            const Icon = SOCIAL_ICONS[s.id];
+            return (
+              <a
+                key={s.id}
+                className={styles.link}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon className={styles.icon} size={28} />
+                <span className={styles.linkText}>
+                  <span className={styles.linkLabel}>{s.label}</span>
+                  <span className={styles.linkHandle}>{s.handle}</span>
+                </span>
+              </a>
+            );
+          })}
 
           <a className={styles.link} href={SITE.phone.href}>
             <span className={styles.icon} aria-hidden="true">

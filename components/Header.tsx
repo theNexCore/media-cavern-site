@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
-import { InstagramIcon, FacebookIcon } from "./SocialIcons";
+import { SOCIAL_ICONS } from "./SocialIcons";
 import { NAV_LINKS, isActiveRoute } from "./nav-links";
 import { SITE } from "@/data/site";
 import styles from "./Header.module.css";
@@ -74,28 +74,22 @@ export default function Header() {
       <header className={styles.brandRow} data-menu-open={menuOpen || undefined}>
           <div className={styles.brandInner}>
             <ul className={styles.socials} role="list">
-              <li>
-                <a
-                  className={styles.socialLink}
-                  href={SITE.social.instagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${SITE.social.instagram.label} — opens in a new tab`}
-                >
-                  <InstagramIcon size={20} />
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.socialLink}
-                  href={SITE.social.facebook.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${SITE.social.facebook.label} — opens in a new tab`}
-                >
-                  <FacebookIcon size={20} />
-                </a>
-              </li>
+              {SITE.social.map((s) => {
+                const Icon = SOCIAL_ICONS[s.id];
+                return (
+                  <li key={s.id}>
+                    <a
+                      className={styles.socialLink}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${s.label} — opens in a new tab`}
+                    >
+                      <Icon size={20} />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <Link

@@ -6,14 +6,16 @@
 
 .logo {
   display: block;
-  width: var(--logo-w-override, var(--logo-w));
+  /* min(100%, ...) is load-bearing: at these widths the raw token
+     would overflow a phone viewport. */
+  width: min(100%, var(--logo-w-override, var(--logo-w)));
   aspect-ratio: var(--logo-aspect); /* 2:1, measured from the artwork */
   flex: none;
 }
 
 @media (max-width: 48rem) {
   .logo {
-    width: var(--logo-w-override, var(--logo-w-sm));
+    width: min(100%, var(--logo-w-override, var(--logo-w-sm)));
   }
 }
 

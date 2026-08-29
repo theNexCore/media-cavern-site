@@ -52,3 +52,56 @@ export function FacebookIcon({ className, size = 24 }: IconProps) {
     </svg>
   );
 }
+
+export function YouTubeIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M23.5 6.9a3 3 0 0 0-2.12-2.13C19.5 4.25 12 4.25 12 4.25s-7.5 0-9.38.52A3 3 0 0 0 .5 6.9 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.1 3 3 0 0 0 2.12 2.13c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3 3 0 0 0 2.12-2.13A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.1ZM9.6 15.6V8.4l6.24 3.6-6.24 3.6Z" />
+    </svg>
+  );
+}
+
+export function NextdoorIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {/* Nextdoor's mark is a house. Drawn as an outline so it reads
+          at the same weight as the Instagram glyph beside it. */}
+      <path d="M3 10.2 12 3.2l9 7v10.6H3V10.2Z" />
+      <path d="M9.4 20.8v-6.1a2.6 2.6 0 0 1 5.2 0v6.1" />
+    </svg>
+  );
+}
+
+/* ---------- Lookup ----------
+   Keyed by the `id` in SITE.social so every consumer can map over
+   that one list instead of hardcoding a component per platform. */
+
+export const SOCIAL_ICONS: Record<
+  string,
+  (props: IconProps) => React.JSX.Element
+> = {
+  instagram: InstagramIcon,
+  facebook: FacebookIcon,
+  youtube: YouTubeIcon,
+  nextdoor: NextdoorIcon,
+};

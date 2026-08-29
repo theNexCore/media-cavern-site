@@ -37,23 +37,36 @@ export const SITE = {
   directionsUrl:
     "https://maps.google.com/?q=11828+Tesson+Ferry+Rd,+St.+Louis,+MO+63128",
 
-  /* ⚠️ SOCIALS PENDING REPLACEMENT — the accounts are being rebuilt.
-     These URLs are the current live ones and stay until the new
-     accounts exist; shipping a dead or placeholder icon is worse
-     than pointing at the old profile. Swapping is a one-line change
-     to each url below — nothing else in the codebase hardcodes them. */
-  social: {
-    instagram: {
+  /* The rebuilt accounts, live as of 2026-08-29. An ordered list
+     rather than named keys: four platforms now, and every consumer
+     (header, footer, homepage, visit, JSON-LD) maps over this one
+     array. Adding or reordering a platform is a change here only. */
+  social: [
+    {
+      id: "instagram",
       label: "Instagram",
-      handle: "@mediacavernstlouis",
-      url: "https://www.instagram.com/mediacavernstlouis/",
+      handle: "@themediacavern",
+      url: "https://www.instagram.com/themediacavern/",
     },
-    facebook: {
+    {
+      id: "facebook",
       label: "Facebook",
-      handle: "Media Cavern",
-      url: "https://www.facebook.com/p/Media-Cavern-61572507115983/",
+      handle: "/themediacavern",
+      url: "https://www.facebook.com/themediacavern",
     },
-  },
+    {
+      id: "youtube",
+      label: "YouTube",
+      handle: "@TheMediaCavern",
+      url: "https://www.youtube.com/@TheMediaCavern",
+    },
+    {
+      id: "nextdoor",
+      label: "Nextdoor",
+      handle: "Media Cavern",
+      url: "https://nextdoor.com/page/media-cavern-st-louis-mo/",
+    },
+  ],
 
   email: {
     bookings: "bookings@themediacavern.com",

@@ -104,8 +104,17 @@ Confirmed accurate — use these, don't re-derive them.
 - **Phone:** (314) 270-3252
 - **Hours:** Mon–Thu 11–8 · Fri 11–9 · Sat 11–8 · Sun 12–5
 - **Credentials:** Veteran Owned · South County Chamber Member
-- **Instagram:** instagram.com/mediacavernstlouis
-- **Facebook:** facebook.com/p/Media-Cavern-61572507115983/
+- **Socials** (rebuilt accounts, live 2026-08-29 — the old
+  `mediacavernstlouis` and `Media-Cavern-61572507115983` profiles are dead
+  and must not reappear):
+  - Instagram: instagram.com/themediacavern
+  - Facebook: facebook.com/themediacavern
+  - YouTube: youtube.com/@TheMediaCavern
+  - Nextdoor: nextdoor.com/page/media-cavern-st-louis-mo/
+
+  They live as an **ordered array** in `SITE.social`. Header, footer,
+  homepage, /visit and the JSON-LD `sameAs` all map over it, so adding or
+  reordering a platform is a change to that one array.
 
 ### Email addresses
 

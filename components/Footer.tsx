@@ -1,5 +1,5 @@
 import Logo from "./Logo";
-import { InstagramIcon, FacebookIcon } from "./SocialIcons";
+import { SOCIAL_ICONS } from "./SocialIcons";
 import { SITE, FEATURES } from "@/data/site";
 import styles from "./Footer.module.css";
 
@@ -82,28 +82,22 @@ export default function Footer() {
               Connect
             </h2>
             <ul className={styles.connect} role="list">
-              <li>
-                <a
-                  className={styles.social}
-                  href={SITE.social.instagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramIcon className={styles.icon} size={18} />
-                  {SITE.social.instagram.label}
-                </a>
-              </li>
-              <li>
-                <a
-                  className={styles.social}
-                  href={SITE.social.facebook.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FacebookIcon className={styles.icon} size={18} />
-                  {SITE.social.facebook.label}
-                </a>
-              </li>
+              {SITE.social.map((s) => {
+                const Icon = SOCIAL_ICONS[s.id];
+                return (
+                  <li key={s.id}>
+                    <a
+                      className={styles.social}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon className={styles.icon} size={18} />
+                      {s.label}
+                    </a>
+                  </li>
+                );
+              })}
               <li>
                 <a className={styles.link} href={`mailto:${SITE.email.bookings}`}>
                   Bookings

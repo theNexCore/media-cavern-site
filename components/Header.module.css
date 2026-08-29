@@ -64,8 +64,14 @@
   outline-offset: var(--focus-offset);
 }
 
+/* Full width with the mark centred inside. As a plain block the link
+   stretched but the logo sat at its left edge, putting the wordmark
+   off-centre; this also gives min(100%, ...) in Logo.module.css a
+   real width to resolve against. */
 .logoLink {
-  display: block;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   border-radius: var(--radius-sm);
 }
 

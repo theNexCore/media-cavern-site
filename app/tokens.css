@@ -128,9 +128,11 @@
   --header-h: 4.5rem;
   --header-h-scrolled: 3.75rem;
   --logo-aspect: 2; /* measured from the supplied wordmark: 1774x887 */
-  /* +50% — the wordmark is the centrepiece of the header. */
-  --logo-w: 15.75rem;
-  --logo-w-sm: 12.375rem;
+  /* Doubled again — the wordmark is the centrepiece of the header.
+     Logo.module.css caps these with min(100%, ...) so they can never
+     push past the gutter on a narrow screen. */
+  --logo-w: 31.5rem;
+  --logo-w-sm: 24.75rem;
   /* The winged mark used as the home button once the nav sticks. */
   --mark-h: 2.25rem;
 
