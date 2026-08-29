@@ -101,32 +101,40 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2) var(--space-4);
-  max-width: 46rem;
+  /* Wider gap and measure to carry the larger type without the
+     line breaking into an awkward orphan. */
+  gap: var(--space-3) var(--space-6);
+  max-width: 58rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* The category line is a real part of the hero's message, not
+   metadata. Sized and weighted to be read, but kept below the
+   support headline so the hierarchy still holds. */
 .secondaryItem {
   position: relative;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-family: var(--font-condensed);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wider);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
 
-/* Green tick between items, never after the last. */
+/* Green tick between items, never after the last. Uses --mc-green
+   rather than --mc-green-deep, which is near-invisible on black at
+   this size. */
 .secondaryItem + .secondaryItem::before {
   content: "";
   position: absolute;
-  left: calc(var(--space-4) / -2 - 1px);
+  left: calc(var(--space-6) / -2 - 2px);
   top: 50%;
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   border-radius: var(--radius-pill);
-  background-color: var(--mc-green-deep);
+  background-color: var(--mc-green);
   transform: translateY(-50%);
 }
 
