@@ -127,7 +127,7 @@
      up exactly with the header bar it replaces. */
   --header-h: 4.5rem;
   --header-h-scrolled: 3.75rem;
-  --logo-aspect: 2; /* measured from the supplied wordmark: 1774x887 */
+  --logo-aspect: 2.5; /* measured from the wordmark-with-record: 1983x793 */
   /* Doubled again — the wordmark is the centrepiece of the header.
      Logo.module.css caps these with min(100%, ...) so they can never
      push past the gutter on a narrow screen. */

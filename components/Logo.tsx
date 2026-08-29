@@ -16,17 +16,23 @@ import styles from "./Logo.module.css";
    width/height to its viewBox. Nothing else in this file, and no
    consuming component, needs to change. <<<
 
-   The artwork carries a real alpha channel: it was supplied as RGB
-   with a baked-in black background, and that black was converted to
-   transparency (see .crawl/alpha.js). It therefore composites
-   correctly on the scrolled header, which is 88% black over blurred
-   content, with no blend-mode workaround.
+   Shipped exactly as supplied, with its black canvas intact. The
+   wordmark only ever sits on --surface-page, which is pure #000000
+   (header brand row, footer, hero), so an opaque black background is
+   indistinguishable from a transparent one.
+
+   Do NOT run the background-removal pass on this file. The record
+   behind the wordmark has dark groove bands that connect to the
+   canvas edge, so an edge flood fill leaks straight into it and
+   punches stripes through the vinyl. The small winged mark in the
+   sticky nav is the one that genuinely needs alpha, because that bar
+   is translucent.
    ============================================================ */
 
 const LOGO = {
   src: "/brand/media-cavern-wordmark.png",
-  width: 1774,
-  height: 887,
+  width: 1983,
+  height: 793,
 } as const;
 
 type LogoProps = {
