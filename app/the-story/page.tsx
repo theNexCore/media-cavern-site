@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "The Story Behind Media Cavern | Cameron Novack",
     description:
       "The musician and collector behind Media Cavern — from CD Warehouse and an audition for The Voice to a record store with a stage and a grand piano.",
-    images: ["/images/cameron-novack-with-hand-painted-sign.jpg"],
+    images: ["/images/cameron-novack-interview-gesturing.jpg"],
   },
 };
 
@@ -75,10 +75,21 @@ export default function TheStoryPage() {
             </a>
           </div>
 
+          {/* ==========================================================
+              HERO PORTRAIT — swap point.
+
+              This is a frame from the filmed interview: verified as
+              Cameron Novack, shelves behind him, strong sense of place.
+              It is a stand-in for a purpose-shot environmental portrait.
+
+              To replace: drop the new file in /public/images, add it to
+              /data/media-manifest.json, and change the src + alt below.
+              Keep the wrapper — it owns the 4:3 crop and the sizing.
+              ========================================================== */}
           <div className={styles.heroFigure}>
             <Image
-              src="/images/cameron-novack-with-hand-painted-sign.jpg"
-              alt="Cameron Novack inside Media Cavern, standing behind a large hand-painted Media Cavern sign with stacked CDs and wall art around him."
+              src="/images/cameron-novack-interview-gesturing.jpg"
+              alt="Cameron Novack mid-conversation inside Media Cavern, the store's wall of VHS and DVD shelving filling the frame behind him."
               width={1100}
               height={619}
               priority

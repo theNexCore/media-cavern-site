@@ -449,14 +449,6 @@ export const CAVERN_IMAGES: readonly CavernImage[] = [
     orientation: "landscape",
   },
   {
-    src: "/images/cameron-novack-with-hand-painted-sign.jpg",
-    width: 1100,
-    height: 619,
-    alt: "Cameron Novack standing behind a large hand-painted MEDIA CAVERN canvas sign, CD stacks and wall art around him",
-    category: null,
-    orientation: "landscape",
-  },
-  {
     src: "/images/cameron-novack-interview-gesturing.jpg",
     width: 1100,
     height: 619,

@@ -21,13 +21,10 @@ lives there is not site content.
 inner pages (/the-cavern, /the-story, /the-stage, /visit), plus SEO
 metadata and LocalBusiness JSON-LD.**
 
-⚠️ **ONE GAP: the long-form narrative for /the-story has not been
-supplied.** That page currently carries only explicitly verified
-facts (CD Warehouse predecessor, The Voice audition with no chair
-turned, January 2025 opening, the SoCo Spotlight interview). Nothing
-about Cameron Novack has been inferred. Add paragraphs to the `body`
-arrays in `/data/story.ts` and the page absorbs them with no layout
-work.
+The long-form narrative for /the-story was supplied on 2026-08-29 and is
+live in `/data/story.ts`. Two link slots remain null by design — the
+audition link and the SoCo Spotlight episode — and each renders its
+button only when a real URL is set. Never a dead button.
 
 | Path | What it is |
 |---|---|
@@ -58,7 +55,7 @@ work.
 | `/data/site.ts` | **Single source of truth** for address, phone, hours, emails, socials + `FEATURES.poweredByNexCore`. |
 | `/data/home-copy.ts` | Copy for homepage sections 7-13. |
 | `/data/story.ts` | /the-story beats. **The narrative gap lives here.** |
-| `/data/cavern-gallery.ts` | All 66 site-eligible frames with category assignments. Generated from the manifest. |
+| `/data/cavern-gallery.ts` | 65 site-eligible frames with category assignments. Generated from the manifest. |
 | `/app/*/page.tsx` | The four inner pages, all built. |
 | `/.crawl/` | Working files from the crawl. Scratch, not a deliverable. |
 
@@ -227,9 +224,13 @@ frames are `weak` (out of focus or back-of-house) and should not ship.
   No further consent check needed for images already in the manifest.
 - **`cd-display-staircase.jpg`** and its crop — confirmed to be the Media Cavern
   building. Location question resolved.
-- **`cameron-novack-with-hand-painted-sign.jpg`** — the man behind the hand-painted
-  MEDIA CAVERN canvas is Cameron Novack. (The painted canvas is hand-made store
-  artwork, not the logo, and is not subject to the logo rule.)
+- ~~`cameron-novack-with-hand-painted-sign.jpg`~~ — **RETRACTED 2026-08-29.** This
+  was recorded as confirmed to be Cameron Novack. **It is not him.** The file is now
+  `hand-painted-media-cavern-sign.jpg`, the subject is **unidentified**, and it is
+  marked HOLD in the manifest: not published anywhere, and not to be published until
+  the person is identified and consent is confirmed. It stays in `/source-harvest/`.
+  (The painted canvas itself is hand-made store artwork, not the logo, and is not
+  subject to the logo rule.)
 - **`vhs-blake-edwards-ten.jpg`** — the cover art is a swimsuit, not nudity. Cleared.
 
 ### Category overlap to respect
@@ -291,3 +292,23 @@ Pull these from Facebook directly if higher-quality live/event imagery is needed
   change; don't keep parallel notes.
 - `/source-harvest/` is a raw archive. Add to it, never prune it.
 - Flag duplicates rather than deleting them.
+
+## Identifying people in photographs
+
+One misidentification has already shipped and had to be retracted (see the
+retracted approval above). The rule now:
+
+**Do not attach a person's name to a photograph unless it is independently
+confirmed.** Not from a filename, not from a caption on the old site, not from
+"it's probably the owner." A wrong name on a real person's face is worse than
+no name, and it propagates into alt text, file names, commit history and a
+public repo before anyone notices.
+
+**Cameron Novack is confirmed in these frames only:**
+
+- `cameron-novack-interview-*.jpg` — the 2026-08-15 SoCo Spotlight session,
+  seated against the VHS/DVD wall, shaved head, clip-on lav mic, dark
+  sleeveless tee. Seven frames.
+- `cameron-novack-singing-stage.jpg` — performing on the in-store stage.
+
+Any other person in the archive is unidentified unless stated here.

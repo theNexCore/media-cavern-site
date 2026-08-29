@@ -22,8 +22,8 @@ export default function StoryTeaser() {
       <div className={styles.inner}>
         <Reveal className={styles.figure}>
           <Image
-            src="/images/cameron-novack-with-hand-painted-sign.jpg"
-            alt="Cameron Novack standing behind a large hand-painted Media Cavern canvas sign inside the store."
+            src="/images/cameron-novack-interview-seated.jpg"
+            alt="Cameron Novack seated in front of the store's wall of DVDs and VHS tapes during a filmed interview."
             width={1100}
             height={619}
             loading="lazy"
