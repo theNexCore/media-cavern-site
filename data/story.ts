@@ -63,6 +63,8 @@ export type Chapter = {
     height: number;
     alt: string;
     caption?: string;
+    /** CSS object-position, for frames whose subject is off-centre. */
+    objectPosition?: string;
     /** Global clip-path mask from globals.css. */
     edge?: "a" | "b" | "c";
   };
@@ -85,14 +87,9 @@ export const CHAPTERS: readonly Chapter[] = [
       text: "Legitimately I would call myself a shaman more than anything else, because when I get on stage I want people to reach that place of transcendence.",
       cite: "Cameron Novack",
     },
-    image: {
-      src: "/images/cameron-novack-singing-stage.jpg",
-      width: 480,
-      height: 800,
-      alt: "Cameron Novack singing into a microphone on the in-store stage under teal and magenta light, a drummer behind him.",
-      caption: "The voice, on his own stage.",
-      edge: "c",
-    },
+    /* No image. The performance portrait that sat here was shot at
+       another venue and was quarantined 2026-08-29. Text-only is
+       correct — do not pad this with an unrelated frame. */
   },
   {
     id: "before",
@@ -114,6 +111,9 @@ export const CHAPTERS: readonly Chapter[] = [
       alt: "The illuminated CD Warehouse storefront sign at night.",
       caption: "The sign he kept walking under.",
       edge: "a",
+      /* The sign sits right of centre in frame; a centred crop cut it.
+         Percentage keeps the correction responsive. */
+      objectPosition: "62% 50%",
     },
   },
   {
@@ -161,11 +161,11 @@ export const CHAPTERS: readonly Chapter[] = [
       "He had never seriously considered moving somewhere else. By then the place already felt like home, and he had been running it in every practical sense for years.",
     ],
     image: {
-      src: "/images/cd-warehouse-storefront-night.jpg",
-      width: 1067,
-      height: 800,
-      alt: "The CD Warehouse storefront lit at night, full facade with illuminated sign and window displays.",
-      caption: "The last night of one name, the first of another.",
+      src: "/images/storefront-11828-daytime.jpg",
+      width: 1600,
+      height: 1600,
+      alt: "The storefront at 11828 in daylight: CD Warehouse signage still on the facade, MEDIA CAVERN lettered in the window glass.",
+      caption: "Same door, same address — the sign had not caught up yet.",
     },
   },
   {
@@ -200,6 +200,19 @@ export const CHAPTERS: readonly Chapter[] = [
     quote: {
       text: "We've never been a warehouse of CDs.",
       cite: "Cameron Novack",
+    },
+    /* ⚠️ SCOPED LOGO EXCEPTION — approved for THIS PLACEMENT ONLY.
+       The winged record mark appears here and nowhere else on the
+       site. It does not unlock logo usage elsewhere: the header,
+       footer and hero all keep their placeholders. The artwork has a
+       solid black background, so it must never sit on a lighter
+       surface. */
+    image: {
+      src: "/images/media-cavern-winged-record-mark.png",
+      width: 1717,
+      height: 916,
+      alt: "The Media Cavern mark: a black vinyl record labelled Media Cavern, flanked by green neon wings.",
+      caption: "Cavern, not cave. Not a warehouse either.",
     },
   },
   {
@@ -304,14 +317,9 @@ export const CHAPTERS: readonly Chapter[] = [
       "Media Cavern is a proud member of the South County Chamber.",
       "For Cameron, being part of South County is more than an address. It means the businesses, the people, the artists and the customers who give this part of St. Louis its identity.",
     ],
-    image: {
-      src: "/images/plaza-strip-mall-exterior-night.jpg",
-      width: 1100,
-      height: 619,
-      alt: "The strip mall on Tesson Ferry Rd at night, storefront signage lit along the row.",
-      caption: "South County, after dark.",
-      edge: "a",
-    },
+    /* No image. The plaza exterior that sat here framed the
+       neighbouring business more than Media Cavern, and was
+       quarantined 2026-08-29. */
   },
 ];
 

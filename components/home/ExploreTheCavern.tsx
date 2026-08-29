@@ -22,9 +22,6 @@ export default function ExploreTheCavern() {
     <section className={styles.section} aria-labelledby="explore-the-cavern">
       <div className={styles.inner}>
         <header className={styles.head}>
-          <Reveal as="p" className={styles.eyebrow}>
-            Seven Ways In
-          </Reveal>
           <Reveal as="h2" delay={60}>
             <span id="explore-the-cavern" className={styles.headline}>
               Explore the Cavern.

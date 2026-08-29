@@ -13,6 +13,10 @@ import styles from "./LiveAtTheCavern.module.css";
    to AUDIO VIDEO EQUIPMENT in section 5, so no frame is reused
    across the two contexts.
 
+   The performance portrait that used to close this section was
+   quarantined 2026-08-29: it was shot at another venue, not at
+   Media Cavern. Do not reinstate it.
+
    The spotlight is a static radial wash behind the lead frame plus a
    soft edge-light on its border — no animation, nothing that pulses.
    ============================================================ */
@@ -76,18 +80,6 @@ export default function LiveAtTheCavern() {
               height={619}
               loading="lazy"
               sizes="(max-width: 60rem) 55vw, 30vw"
-              className={styles.image}
-            />
-          </Reveal>
-
-          <Reveal delay={160} className={styles.figurePlayer}>
-            <Image
-              src="/images/cameron-novack-singing-stage.jpg"
-              alt="Cameron Novack singing into a mic on the in-store stage under teal and magenta light, a drummer behind him."
-              width={480}
-              height={800}
-              loading="lazy"
-              sizes="(max-width: 60rem) 40vw, 22vw"
               className={styles.image}
             />
           </Reveal>

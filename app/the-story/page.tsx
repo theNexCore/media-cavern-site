@@ -160,6 +160,13 @@ export default function TheStoryPage() {
                         loading="lazy"
                         sizes="(max-width: 60rem) 100vw, 42vw"
                         className={styles.image}
+                        /* Percentage crop for frames whose subject sits
+                           off-centre; responsive by construction. */
+                        style={
+                          chapter.image.objectPosition
+                            ? { objectPosition: chapter.image.objectPosition }
+                            : undefined
+                        }
                       />
                     </div>
                     {chapter.image.caption ? (

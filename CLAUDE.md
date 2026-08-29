@@ -342,3 +342,24 @@ the site follows his lead exactly.
 
 **The store piano is not his mother's piano.** Hers is still at his home with the
 keys removed. Do not merge the two.
+
+## The winged record mark — SCOPED EXCEPTION
+
+`/public/images/media-cavern-winged-record-mark.png` is approved for **one
+placement only**: `/the-story`, chapter 07 (the name), right of the copy.
+
+It does **not** unlock logo usage anywhere else. The header, footer and hero all
+keep their placeholder components. Do not reuse this file on any other page or
+in any other component.
+
+The artwork has a **solid black background, no alpha** — it must never be placed
+on a lighter surface.
+
+## Quarantine
+
+Quarantine means **rename in the manifest and dereference from the site**. The
+master always stays in `/source-harvest/`, which is append-only. The Cavern
+gallery generator skips any entry whose `proposedName` starts with
+`QUARANTINE-`, whose `suggestedUse` starts with `HOLD`, or which is marked as a
+SCOPED LOGO EXCEPTION — so exclusions survive regeneration instead of needing a
+hand-edit.

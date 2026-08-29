@@ -14,8 +14,8 @@
      browser chrome from cropping it. */
   min-height: 92svh;
   /* Clears the fixed header, then balances the optical weight. */
-  padding: calc(var(--header-h) + var(--space-16)) var(--gutter)
-    var(--space-20);
+  /* The header is in normal flow now, so no fixed-bar offset. */
+  padding: var(--space-16) var(--gutter) var(--space-20);
   background-color: var(--surface-page);
   text-align: center;
 }

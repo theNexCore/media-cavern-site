@@ -152,14 +152,11 @@
   box-shadow: var(--glow-md);
 }
 
+/* Full width now that the third frame is gone — a half-width
+   orphan beside empty space read as a missing image. */
 .figureCorner {
-  grid-column: 1 / span 7;
-  aspect-ratio: 16 / 9;
-}
-
-.figurePlayer {
-  grid-column: 8 / span 5;
-  aspect-ratio: 3 / 4;
+  grid-column: 1 / span 12;
+  aspect-ratio: 21 / 9;
 }
 
 .image {
@@ -195,26 +192,8 @@
   }
 
   .figureCorner {
-    grid-column: 1 / span 7;
-    aspect-ratio: 4 / 3;
-  }
-
-  .figurePlayer {
-    grid-column: 8 / span 5;
-    aspect-ratio: 3 / 4;
-  }
-}
-
-@media (max-width: 30rem) {
-  /* Below this the two supports side by side get too small to read;
-     the performer frame carries more than the empty stage does. */
-  .figureCorner {
-    display: none;
-  }
-
-  .figurePlayer {
     grid-column: 1 / span 12;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 }
 

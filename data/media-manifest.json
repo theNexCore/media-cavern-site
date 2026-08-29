@@ -2,15 +2,15 @@
   {
     "originalFilename": "cambeingcam-themediacavern-com-1_orig.jpg",
     "originalUrl": "https://site-a25ec3376396.mypreview.site/uploads/1/5/0/8/150866951/cambeingcam-themediacavern-com-1_orig.jpg",
-    "proposedName": "cameron-novack-singing-stage.jpg",
+    "proposedName": "QUARANTINE-cameron-performing-other-venue.jpg",
     "bucket": "A",
-    "contents": "Cameron Novack singing into a mic on the in-store stage under teal and magenta light, drummer and amp stack behind him",
+    "contents": "Cameron Novack performing under a magenta floor wash against a teal curtain backdrop with amp stacks - NOT Media Cavern; an older photo from another venue",
     "sourcePage": "/the-cavern.html",
     "existingAlt": "Cameron Novack with the Party",
     "orientation": "portrait",
     "quality": "strong",
     "duplicateOf": null,
-    "suggestedUse": "THE STAGE hero or THE STORY portrait of the owner performing"
+    "suggestedUse": "QUARANTINE - not Media Cavern. Removed from the site 2026-08-29. Do not publish."
   },
   {
     "originalFilename": "cds-themediacavern-com_orig.jpg",
@@ -236,7 +236,7 @@
   {
     "originalFilename": "20260401-225937_orig.jpg",
     "originalUrl": "https://site-a25ec3376396.mypreview.site/uploads/1/5/0/8/150866951/20260401-225937_orig.jpg",
-    "proposedName": "plaza-strip-mall-exterior-night.jpg",
+    "proposedName": "QUARANTINE-plaza-exterior-neighbouring-business.jpg",
     "bucket": "A",
     "contents": "Wide night shot of the strip mall with the CD Warehouse and neighbouring storefront signage lit",
     "sourcePage": "/",
@@ -244,7 +244,7 @@
     "orientation": "landscape",
     "quality": "strong",
     "duplicateOf": null,
-    "suggestedUse": "VISIT page - helps people recognise the plaza from the road"
+    "suggestedUse": "QUARANTINE - the framing shows the neighbouring business more than Media Cavern. Removed from /visit and /the-story 2026-08-29."
   },
   {
     "originalFilename": "20260714-222917_orig.jpg",
@@ -1633,5 +1633,31 @@
     "quality": "strong",
     "duplicateOf": null,
     "suggestedUse": "COLLECTIBLES; supplied by the client 2026-08-29"
+  },
+  {
+    "originalFilename": "1000006881.jpeg",
+    "originalUrl": "",
+    "proposedName": "storefront-11828-daytime.jpg",
+    "bucket": "A",
+    "contents": "Daytime straight-on view of 11828: CD Warehouse signage still on the facade, MEDIA CAVERN lettered in the window glass, address numerals legible",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "square",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "THE STORY - CD Warehouse / transition section. Supplied by the client 2026-08-29. NOT for /visit until it is confirmed whether the CD Warehouse sign is still up."
+  },
+  {
+    "originalFilename": "media_cavern_winged_record_no_tagline.png",
+    "originalUrl": "",
+    "proposedName": "media-cavern-winged-record-mark.png",
+    "bucket": "A",
+    "contents": "The winged record mark: green neon bat wings flanking a black vinyl record labelled MEDIA CAVERN, on solid black",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "SCOPED LOGO EXCEPTION - approved for ONE placement only: /the-story section 07 (the name). Not for any other page or component. Background is solid black, never place on a lighter surface."
   }
 ]

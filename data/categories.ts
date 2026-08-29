@@ -31,7 +31,8 @@ export type CategoryId =
 
 /** Filter bar labels. Shorter than the tile labels by design. */
 export const FILTERS: readonly { id: CategoryId | "all"; label: string }[] = [
-  { id: "all", label: "ALL" },
+  /* A control, not a category — labelled so it never reads as one. */
+  { id: "all", label: "SHOW ALL" },
   { id: "music", label: "MUSIC" },
   { id: "movies", label: "MOVIES" },
   { id: "audio-video-equipment", label: "AUDIO VIDEO" },

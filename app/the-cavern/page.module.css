@@ -1,13 +1,17 @@
 /* ============================================================
    /the-cavern
+   Seven sections about the room, then buying, then the gallery.
    ============================================================ */
 
 .page {
   background-color: var(--surface-page);
+  overflow-x: clip;
 }
 
+/* ---------- Hero ---------- */
+
 .hero {
-  padding-top: calc(var(--header-h) + clamp(var(--space-12), 8vw, var(--space-24)));
+  padding-top: clamp(var(--space-12), 8vw, var(--space-24));
   padding-inline: var(--gutter);
   padding-bottom: clamp(var(--space-10), 5vw, var(--space-16));
 }
@@ -43,7 +47,7 @@
   gap: var(--space-4);
   max-width: 46ch;
   color: var(--text-secondary);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   line-height: var(--leading-relaxed);
   text-wrap: pretty;
 }
@@ -55,24 +59,362 @@
 .kicker {
   color: var(--mc-green);
   font-family: var(--font-condensed);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
 
-.body {
+/* ---------- Shared ---------- */
+
+.label {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+.prose p {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--mc-green-deep);
+  border-radius: var(--radius-sm);
+  background-color: var(--mc-black);
+  aspect-ratio: 4 / 3;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Sections ---------- */
+
+.sections {
   max-width: var(--maxw-content);
   margin-inline: auto;
   padding-inline: var(--gutter);
-  padding-bottom: var(--space-section);
+}
+
+.section {
+  display: grid;
+  gap: clamp(var(--space-8), 5vw, var(--space-16));
+  align-items: center;
+  padding-block: clamp(var(--space-14), 8vw, var(--space-24));
+  border-bottom: 1px solid var(--mc-green-deep);
+}
+
+@media (min-width: 60rem) {
+  .section {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+
+  /* Alternate sides so it reads as a spread, not a stack of cards. */
+  .section[data-flip] .sectionCopy {
+    order: 2;
+  }
+
+  .section[data-flip] .sectionFigure {
+    order: 1;
+  }
+}
+
+.sectionCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.sectionFigure {
+  min-width: 0;
+}
+
+/* The audio video section is the strongest on the page and its
+   frame is a tall component stack — give it the room. */
+.section#audio-video-equipment .frame {
+  aspect-ratio: 3 / 4;
+}
+
+.sectionHeading {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.marks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marks li {
+  position: relative;
+  padding-left: var(--space-6);
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.marks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: var(--space-4);
+  height: 2px;
+  background-color: var(--mc-green);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- They buy ---------- */
+
+.buying {
+  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid var(--mc-green-deep);
+}
+
+.buyingInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+.buyingHeading {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background-color: var(--mc-green);
+  border: 1px solid var(--mc-green);
+  border-radius: var(--radius-sm);
+  color: var(--mc-black);
+  font-family: var(--font-condensed);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  box-shadow: var(--glow-sm);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.cta:hover {
+  background-color: var(--mc-green-bright);
+  border-color: var(--mc-green-bright);
+  box-shadow: var(--glow-bright);
+}
+
+.cta:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---------- Closing ---------- */
+
+.closing {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(var(--space-16), 9vw, var(--space-32));
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.closingGlow {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: min(120vw, 60rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    var(--mc-glow) 0%,
+    var(--mc-atmosphere-deep) 34%,
+    transparent 68%
+  );
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.closingInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  max-width: 46ch;
+  margin-inline: auto;
+}
+
+.closingHeadline {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.closingKicker {
+  margin: 0;
+  color: var(--mc-green);
+  font-family: var(--font-condensed);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-shadow: 0 0 20px var(--mc-glow);
+}
+
+/* ---------- Gallery ---------- */
+
+.galleryWrap {
+  padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-section);
+  padding-inline: var(--gutter);
+  border-top: 1px solid var(--mc-green-deep);
+}
+
+.galleryInner {
+  max-width: var(--maxw-content);
+  margin-inline: auto;
+}
+
+.galleryHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 56ch;
+  margin-bottom: clamp(var(--space-6), 3vw, var(--space-10));
+}
+
+.galleryHeading {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.galleryBody {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
 }
 
 .count {
   margin: var(--space-6) 0 var(--space-8);
   color: var(--text-muted);
   font-family: var(--font-condensed);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-widest);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 60rem) {
+  .heroInner,
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Image leads each section, copy follows. */
+  .sectionFigure {
+    order: 1;
+  }
+
+  .sectionCopy {
+    order: 2;
+  }
+
+  .frame,
+  .section#audio-video-equipment .frame {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (max-width: 40rem) {
+  .headline,
+  .closingHeadline {
+    font-size: var(--text-4xl);
+  }
+
+  .sectionHeading,
+  .buyingHeading,
+  .galleryHeading {
+    font-size: var(--text-3xl);
+  }
+
+  .label,
+  .kicker,
+  .closingKicker {
+    font-size: var(--text-xl);
+  }
+
+  .prose,
+  .support {
+    font-size: var(--text-lg);
+  }
+
+  .cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
 }

@@ -10,11 +10,12 @@ import styles from "./page.module.css";
 
    A utility page: address, hours, phone, directions, social.
 
-   The wayfinding photograph is the plaza exterior, which genuinely
-   helps people spot the building from Tesson Ferry Rd. Note the
-   signage in that frame still reads CD Warehouse — it is the same
-   plaza and the same unit, and it is the clearest exterior in the
-   archive.
+   NO EXTERIOR PHOTOGRAPH right now, deliberately. The plaza shot
+   that was here framed the neighbouring business more than Media
+   Cavern and has been quarantined. The daytime storefront is not a
+   drop-in replacement: it still carries CD Warehouse signage, and
+   whether that sign is on the building today is unconfirmed. An
+   honest gap beats sending people to look for the wrong sign.
 
    Directions are a STATIC LINK, not an embedded map: an iframe
    would pull third-party scripts and cookies onto an otherwise
@@ -31,7 +32,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Visit · Media Cavern",
     description: "Hours, directions and phone for Media Cavern at 11828 Tesson Ferry Rd, St. Louis.",
-    images: ["/images/plaza-strip-mall-exterior-night.jpg"],
+    /* Not an exterior: the plaza shot was quarantined and the daytime
+       storefront is on hold pending the CD Warehouse sign question. */
+    images: ["/images/store-interior-customers-wide.jpg"],
   },
 };
 
@@ -49,25 +52,6 @@ export default function VisitPage() {
       </header>
 
       <div className={styles.grid}>
-        <Reveal className={styles.figureWrap}>
-          <figure className={styles.figure}>
-            <div className={styles.frame}>
-              <Image
-                src="/images/plaza-strip-mall-exterior-night.jpg"
-                alt="The strip mall on Tesson Ferry Rd at night, storefront signage lit along the row."
-                width={1100}
-                height={619}
-                loading="lazy"
-                sizes="(max-width: 60rem) 100vw, 55vw"
-                className={styles.image}
-              />
-            </div>
-            <figcaption className={styles.caption}>
-              The plaza at night — look for this row from Tesson Ferry Rd.
-            </figcaption>
-          </figure>
-        </Reveal>
-
         <div className={styles.details}>
           <Reveal className={styles.block}>
             <h2 className={styles.blockTitle}>Address</h2>

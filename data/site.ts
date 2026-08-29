@@ -37,6 +37,11 @@ export const SITE = {
   directionsUrl:
     "https://maps.google.com/?q=11828+Tesson+Ferry+Rd,+St.+Louis,+MO+63128",
 
+  /* ⚠️ SOCIALS PENDING REPLACEMENT — the accounts are being rebuilt.
+     These URLs are the current live ones and stay until the new
+     accounts exist; shipping a dead or placeholder icon is worse
+     than pointing at the old profile. Swapping is a one-line change
+     to each url below — nothing else in the codebase hardcodes them. */
   social: {
     instagram: {
       label: "Instagram",

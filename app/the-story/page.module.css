@@ -76,7 +76,7 @@
 /* ---------- HERO ---------- */
 
 .hero {
-  padding-top: calc(var(--header-h) + clamp(var(--space-16), 10vw, var(--space-32)));
+  padding-top: clamp(var(--space-16), 10vw, var(--space-32));
   padding-inline: var(--gutter);
   padding-bottom: clamp(var(--space-12), 7vw, var(--space-24));
   border-bottom: 1px solid var(--mc-green-deep);

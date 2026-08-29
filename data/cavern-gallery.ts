@@ -33,14 +33,6 @@ export type CavernImage = {
 
 export const CAVERN_IMAGES: readonly CavernImage[] = [
   {
-    src: "/images/cameron-novack-singing-stage.jpg",
-    width: 480,
-    height: 800,
-    alt: "Cameron Novack singing into a mic on the in-store stage under teal and magenta light, drummer and amp stack behind him",
-    category: "live-events",
-    orientation: "portrait",
-  },
-  {
     src: "/images/cd-bins-browsing-aisle.jpg",
     width: 800,
     height: 800,
@@ -165,14 +157,6 @@ export const CAVERN_IMAGES: readonly CavernImage[] = [
     width: 1100,
     height: 619,
     alt: "CD Warehouse storefront at night with neon window signage for CDs, DVDs and vinyl and chairs out front",
-    category: null,
-    orientation: "landscape",
-  },
-  {
-    src: "/images/plaza-strip-mall-exterior-night.jpg",
-    width: 1100,
-    height: 619,
-    alt: "Wide night shot of the strip mall with the CD Warehouse and neighbouring storefront signage lit",
     category: null,
     orientation: "landscape",
   },
@@ -599,5 +583,13 @@ export const CAVERN_IMAGES: readonly CavernImage[] = [
     alt: "A bagged copy of Superman No. 199 - 'The Race Between Superman and Flash' - standing in a comics bin",
     category: "collectibles",
     orientation: "landscape",
+  },
+  {
+    src: "/images/storefront-11828-daytime.jpg",
+    width: 1600,
+    height: 1600,
+    alt: "Daytime straight-on view of 11828: CD Warehouse signage still on the facade, MEDIA CAVERN lettered in the window glass, address numerals legible",
+    category: null,
+    orientation: "square",
   },
 ] as const;
