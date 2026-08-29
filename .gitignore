@@ -5,3 +5,10 @@ next-env.d.ts
 .crawl/
 *.tsbuildinfo
 .DS_Store
+
+# Personal photos held in the local archive but NOT published.
+# Bucket B, never site content. source-harvest stays complete on
+# disk (CLAUDE.md: append-only) — these two are simply not tracked,
+# because this repo is public.
+source-harvest/screenshot-20260816-164512-photos_orig.jpg
+source-harvest/cam-from-media-cavern_orig.jpg
