@@ -1555,5 +1555,83 @@
     "quality": "usable",
     "duplicateOf": null,
     "suggestedUse": "NONE - logo artwork, quarantined"
+  },
+  {
+    "originalFilename": "20260829_133959.jpg",
+    "originalUrl": "",
+    "proposedName": "av-equipment-shelves-players.jpg",
+    "bucket": "A",
+    "contents": "Wooden shelving racked with DVD players, VCRs and a Sony Hi-Fi VCR, Pioneer bookshelf speakers on top and remotes alongside",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "AUDIO VIDEO EQUIPMENT category cover; supplied by the client 2026-08-29"
+  },
+  {
+    "originalFilename": "20260829_134544.jpg",
+    "originalUrl": "",
+    "proposedName": "av-equipment-component-stack.jpg",
+    "bucket": "A",
+    "contents": "A PS-120 amplifier above a stacked component system with tuner, equaliser and twin cassette deck, red cable coiled below",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "portrait",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "AUDIO VIDEO EQUIPMENT; supplied by the client 2026-08-29. Camera original was stored rotated 90 degrees; corrected clockwise"
+  },
+  {
+    "originalFilename": "20260829_134134.jpg",
+    "originalUrl": "",
+    "proposedName": "clothing-rack-her-tee.jpg",
+    "bucket": "A",
+    "contents": "A cream H.E.R. tee hanging at the front of a packed clothing rack, black band tees behind it and CD racks beyond",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "CLOTHING; supplied by the client 2026-08-29"
+  },
+  {
+    "originalFilename": "20260829_134151.jpg",
+    "originalUrl": "",
+    "proposedName": "clothing-notorious-big-tee.jpg",
+    "bucket": "A",
+    "contents": "A black Notorious B.I.G. tee on the rack, childhood portrait printed large across the chest",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "CLOTHING; supplied by the client 2026-08-29"
+  },
+  {
+    "originalFilename": "20260829_134243.jpg",
+    "originalUrl": "",
+    "proposedName": "clothing-goonies-tee.jpg",
+    "bucket": "A",
+    "contents": "A maroon Goonies 'Never Say Die' tee on a hanger in front of the vinyl and CD wall, Pink Floyd and Ramones sleeves behind",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "CLOTHING; supplied by the client 2026-08-29"
+  },
+  {
+    "originalFilename": "20260829_135021.jpg",
+    "originalUrl": "",
+    "proposedName": "collectibles-superman-199-comic.jpg",
+    "bucket": "A",
+    "contents": "A bagged copy of Superman No. 199 - 'The Race Between Superman and Flash' - standing in a comics bin",
+    "sourcePage": "",
+    "existingAlt": "",
+    "orientation": "landscape",
+    "quality": "strong",
+    "duplicateOf": null,
+    "suggestedUse": "COLLECTIBLES; supplied by the client 2026-08-29"
   }
 ]

@@ -93,10 +93,10 @@ export const CATEGORIES: readonly Category[] = [
       "Turntables, receivers, speakers, CRTs, players and gear with another life left in it.",
     href: "/the-cavern?filter=audio-video-equipment",
     image: {
-      src: "/images/vintage-stereo-console-counter.jpg",
-      width: 1100,
-      height: 619,
-      alt: "A vintage stereo console and turntable in a wooden hutch stacked with LPs, customers at the counter behind.",
+      src: "/images/av-equipment-shelves-players.jpg",
+      width: 2400,
+      height: 1351,
+      alt: "Wooden shelving racked with DVD players and VCRs, Pioneer bookshelf speakers on top and remotes alongside.",
     },
   },
   {
