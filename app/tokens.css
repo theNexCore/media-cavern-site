@@ -36,9 +36,12 @@
   --mc-veil-deep: rgba(6, 77, 1, 0.35);
   --mc-atmosphere-deep: rgba(6, 77, 1, 0.22);
 
-  --text-primary: rgba(255, 255, 255, 0.96);
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.52);
+  /* Alphas over pure black, with resulting contrast ratios.
+     secondary and muted were raised from .70/.52 after long-form
+     body copy and photo captions read too soft on a dark ground. */
+  --text-primary: rgba(255, 255, 255, 0.96);   /* 19.2:1 */
+  --text-secondary: rgba(255, 255, 255, 0.78); /* 12.4:1 */
+  --text-muted: rgba(255, 255, 255, 0.7);      /* 10.0:1 */
 
   /* ---------- Surfaces ----------
      Derived from --mc-black only. No gray tokens: these are pure
