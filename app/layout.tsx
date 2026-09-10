@@ -3,6 +3,7 @@ import { Grenze_Gotisch, Barlow_Condensed, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 /* Three faces, three jobs:
@@ -97,6 +98,9 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <StructuredData />
+        {/* Vercel Analytics. Mounted once in the root layout, so it covers
+            every route in the app — do not add it per page. */}
+        <Analytics />
       </body>
     </html>
   );
